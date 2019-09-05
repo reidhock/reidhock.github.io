@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-06T01:16:03+09:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[파이썬] 문제 풀이 (4)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (4)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(4)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/">&lt;p&gt;오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.&lt;/p&gt;
+
+&lt;p&gt;아무튼… 오늘 풀 문제는 이진 탐색에 관한 문제이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python4.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#list의 가장 첫 index
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#List의 가장 마지막 index
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#구하고자 하는 인덱스
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# list를 반으로 쪼개기를 반복해서 lower가 upper과 같아질 때까지 반복!
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#중간 index를 구한다.
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#쪼개기를 반복해서 마지막 반복까지 오고
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#마지막으로 남은 값이 x와 같으면 idx에 middle을 대입하고 return!
+&lt;/span&gt;                &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#반복문을 끝까지 돌리기 전에 x의 값을 찾으면 해당하는 middle 값을 return
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#x가 중간값보다 작으면 upper를 옮긴다.
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#x가 중간값보다 크면 lower를 옮긴다.
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;lower&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;middle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;문제 자체는 크게 어렵지 않다. 하지만 이진 탐색에 대해서 간단하게 정리하고자 올렸다. &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;에 이용하는 탐색에는 흔히 &lt;strong&gt;선형 탐색(Linear Search)&lt;/strong&gt;와 &lt;strong&gt;이진 탐색(Binary Search)&lt;/strong&gt;이 있다.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;선형 탐색&lt;/dt&gt;
+  &lt;dd&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;를 처음부터 하나씩 뒤져가면서 값을 찾아가는 방법.&lt;br /&gt;
+리스트의 길이에 비례하는 시간 소요 -&amp;gt; O(n)&lt;/dd&gt;
+  &lt;dt&gt;이진 탐색&lt;/dt&gt;
+  &lt;dd&gt;탐색하려는 &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;가 이미 정렬되어 있는 경우에만 적용 가능.&lt;br /&gt;
+한 번 비교가 일어날 때마다 탐색하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt;의 크기를 반씩 줄임&lt;br /&gt;
+-&amp;gt;O(log n)&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;프로그래밍을 배우면 배울수록 느끼는 점은 항상 옳은 방식은 없고 상황에 맞게 코드를 유동적으로 바꿔야 한다는 것이다.&lt;br /&gt;
+자료의 양이 많아지는 경우에는 아무래도 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 처음부터 끝까지 순서대로 뒤지는 선형 탐색보다는 이진 탐색이 더 잘 어울릴 것이다.
+하지만 이에는 조건이 있다. 이진 탐색을 사용하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;가 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt; 되어 있어야 한다는 점이다. 만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt; 되어 있지 않은
+&lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt;부터 시작해서 이진탐색을 하게 된다면 오히려 선형 탐색보다 수행 시간이 더 걸릴 수 있다.&lt;br /&gt;
+아직 실무에서 직접 경험해보지는 않았지만 이런 점들을 고려하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 만들 때 되도록이면 정렬이 될 수 있게 신경을 써주면 되지 않을까라는 생각을 해본다.&lt;/p&gt;
+
+&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 index와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (3)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (3)" /><published>2019-09-03T00:00:00+09:00</published><updated>2019-09-03T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(3)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/">&lt;p&gt;서론
+오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다.
+매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다.&lt;/p&gt;
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python3.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;제가 생각해낸 답은 아주 간단합니다. 조건을 잘 읽어보시면 되는데 문제 풀이에 초점을 맞춘다면 가장 중요한 조건은 completion의 길이는 participant의 길이보다 1 작다는 것입니다.&lt;br /&gt;
+풀이를 보시면 먼저 participant와 completion을 sort를 합니다. 그 다음 completion의 list의 크기 만큼 반복문을 돌려서 participant와 completion의 값을 비교합니다.&lt;br /&gt;
+반복문 중간에 값이 다르다면 그 값을 바로 return하고, 반복문이 끝까지 돌 때까지(completion의 길이 만큼) 다른 값이 없다면 participant list 안 마지막 순서에 있는 사람이 완주하지 못했다는 것을 자연스럽게 유추할 수 있습니다.&lt;br /&gt;
+따라서 반복문을 빠져나와 participant의 가장 마지막 값 participant[i+1]을 return 하면 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;하지만&quot;&gt;하지만&lt;/h3&gt;
+&lt;p&gt;여기서 제가 미처 생각하지 못한 것이 있습니다. 바로 &lt;strong&gt;코드의 효율성&lt;/strong&gt;입니다.&lt;br /&gt;
+위에 올린 풀이대로 하면 답은 구할 수 있지만 list가 커지면 list의 모든 원소들을 다 하나하나 뒤져야 하므로 코드의 효율성이 떨어질 수 있습니다. &lt;br /&gt;
+따라서 제가 찾은 답은……&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;collections모듈의 Counter를 이용해 중복을 허용하는 dictionary 객체를 만든 뒤 차집합을 한 다음 이를 list의 형태로 변환한 뒤 0번째 index를 꺼내오면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;hash의 종류 중 하나인 dictionary 자료형은 큰 데이터를 가지고 즉시 저장하거나 찾고자 하는 위치를 바로 바로 참조할 수 있으므로 더욱 빠른 속도로 처리할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;최근 시간복잡도나 코드의 효율성에 영향을 끼치는 자료구조에 대해서 따로 인강도 들으면서 공부를 하는 중인데 기회가 되면 배운 것을 정리할 겸 해서 자료구조에 대해서 포스팅을 할 계획입니다.&lt;/p&gt;
+
+&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">서론 오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다. 매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다. 문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (2)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (2)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(2)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/">&lt;p&gt;10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다.
+1000미만의 자연수에서 3,5의 배수의 총합을 구하라.&lt;/p&gt;
+
+&lt;p&gt;처음에는 별거 아닌 문제라고 생각해 간단하게 아래처럼 풀었습니다.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;보시면 아시겠지만 간단하게 for문을 돌려서 나머지가 3과 5로 나눈 나머지가 0인 값들을 더하는 코드입니다.&lt;/p&gt;
+
+&lt;p&gt;그런데 Python의 아래의 코드처럼 List Comprehension을 이용하면 보다 빠르고 간결하게 이 문제를 해결할 수 있다는 것을 알았습니다.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;리스트 컴프리헨션(list comprehension)의 기본 개념은 기존 리스트형을 사용하여 간단하게 새로운 리스트를 만드는 것입니다. 리스트와 for문을 한 줄에 사용할 수 있는 점과 코드의 성능을 높힐 수 있다는 점이 큰 장점입니다.&lt;/p&gt;
+
+&lt;p&gt;크게 List Comprehension은 필터링, 중첩반복문, 이차원 리스트를 만드는데 쓰일 수 있습니다. 굳이 따지자면 이차원 리스트는 중첩반복문을 이용해서 만들지만 코드 안에서 괄호의 위치를 어디에 따라 단순 중첩반복문이냐 이차원 리스트냐가 결정되어 집니다. 아래의 예시를 보면 쉽게 이해가 될 것 같습니다.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;result1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Aa'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ab'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ac'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ba'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ca'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;result2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Aa'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ba'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ca'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ab'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ac'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;괄호의 위치를 주의 깊게 봐주세요. 이차원 리스트를 만드는 코드는 안에 괄호 한 쌍이 더 들어가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;알면 쓰고 모르면 못쓰는 List Comprehension. 앞으로 연습을 더 해봐야 될 것 같네요.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다. 1000미만의 자연수에서 3,5의 배수의 총합을 구하라.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (1)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (1)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(1)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/">&lt;h2 id=&quot;팔린드롬-문제&quot;&gt;팔린드롬 문제&lt;/h2&gt;
+
+&lt;p&gt;“토마토”나 “기러기”처럼 거꾸로 읽어도 똑같은 단어를 팔린드롬(palindrome)이라고 부릅니다.
+문자열 ‘word’가 팔린드롬인지 확인하는 함수 is_palindrome를 쓰세요.&lt;br /&gt;
+함수 is_palindrome은 word가 팔린드롬이면 True를, 팔린드롬이 아니면 False를 리턴합니다.&lt;/p&gt;
+
+&lt;p&gt;다양한 해답이 있겠지만 저는 제가 아는 가장 단순한 방법으로 이 문제에 접근했습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;먼저 is_palindromed이라는 함수를 만들고 temp 변수를 만들어 여기에다가 받아온 word값을 끝에서부터([::-1]) 차례대로 집어넣었습니다.&lt;br /&gt;
+그 다음 word와 temp를 비교해 안의 내용이 같으면 True 그렇지 않으면 False를 return하도록 하였습니다.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">팔린드롬 문제</summary></entry><entry><title type="html">[오라클] ajax로 date를 받아올 때 날짜 format 변경</title><link href="http://localhost:4000/ajax%EB%A1%9C-date%EB%A5%BC-%EB%B0%9B%EC%95%84%EC%98%AC-%EB%95%8C-%EB%82%A0%EC%A7%9C-format-%EB%B3%80%EA%B2%BD/" rel="alternate" type="text/html" title="[오라클] ajax로 date를 받아올 때 날짜 format 변경" /><published>2019-08-23T00:00:00+09:00</published><updated>2019-08-23T00:00:00+09:00</updated><id>http://localhost:4000/ajax%EB%A1%9C%20date%EB%A5%BC%20%EB%B0%9B%EC%95%84%EC%98%AC%20%EB%95%8C%20%EB%82%A0%EC%A7%9C%20format%20%EB%B3%80%EA%B2%BD</id><content type="html" xml:base="http://localhost:4000/ajax%EB%A1%9C-date%EB%A5%BC-%EB%B0%9B%EC%95%84%EC%98%AC-%EB%95%8C-%EB%82%A0%EC%A7%9C-format-%EB%B3%80%EA%B2%BD/">&lt;p&gt;제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.&lt;/p&gt;
+
+&lt;p&gt;ajax 통신으로 오라클에서 date를 받아오면 날짜 형식이 millisecond로 나오는 경우가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이를 해결하기 위해서는 자바스크립트에서 날짜 format을 바꿔주는 방식 또는 DB상에서 바꿔주는 방식이 있는데 저는 아래의 &lt;strong&gt;DB에서 formatting을 하는 코드&lt;/strong&gt;로 대체해서 이 문제를 해결했습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+TO_CHAR(DATE_COLUMN_NAME, 'YYYY/MM/DD HH24:MI:SS') AS 별칭
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ajax" /><category term="oracle [오라클]" /><summary type="html">제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.</summary></entry><entry><title type="html">[인사말]첫번째 포스팅…!</title><link href="http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85/" rel="alternate" type="text/html" title="[인사말]첫번째 포스팅...!" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85...</id><content type="html" xml:base="http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85/">&lt;p&gt;안녕하세요. 처음 블로그를 만들때는 그때그때 모르는 것을 저장하기 위한 용도로 생각하고 만들었지만, 다른 개발자들과 함께 고민하고 소통하는 시간을 가지며 함께 더 좋은 프로그래머로 성장하면 좋을 것 같아 이렇게 인사드립니다.&lt;/p&gt;
+
+&lt;p&gt;간단히 제 소개를 하자면 다른 분야에서 공부를 마치고 남들보다는 조금은 뒤늦게 프로그래밍에 관심을 갖기 시작하여 현재는 국비지원을 통해 웹 개발자가 되기 위해서 공부를 하고 있는 중입니다.&lt;/p&gt;
+
+&lt;p&gt;앞으로의 제 계획은 블로그를 시작한 가장 큰 이유 중 하나인 프로젝트를 진행하면서 부딫히는 문제들에 대해서 포스팅하고 기회가 되면 개발자로서의 성장 과정이나 취업과정, 국비교육에 대해서도 이야기 나누고 싶습니다.&lt;/p&gt;
+
+&lt;p&gt;한번도 블로그를 관리해본 적이 없어서 미숙한 점이 많겠지만 함께 소통하고 고민하면서 서로에게 의미있는 공간으로 만들 수 있으면 좋겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="random [이것저것]" /><summary type="html">안녕하세요. 처음 블로그를 만들때는 그때그때 모르는 것을 저장하기 위한 용도로 생각하고 만들었지만, 다른 개발자들과 함께 고민하고 소통하는 시간을 가지며 함께 더 좋은 프로그래머로 성장하면 좋을 것 같아 이렇게 인사드립니다.</summary></entry><entry><title type="html">A Full and Comprehensive Style Test(Korean ver.)</title><link href="http://localhost:4000/style-test-ko/" rel="alternate" type="text/html" title="A Full and Comprehensive Style Test(Korean ver.)" /><published>2016-08-14T00:00:00+09:00</published><updated>2016-08-14T00:00:00+09:00</updated><id>http://localhost:4000/style-test-ko</id><content type="html" xml:base="http://localhost:4000/style-test-ko/">&lt;p&gt;이 글은 스타일을 모아둔 것입니다. 소스 코드를 확인하여 스타일을 적용하는 방법을 알아보세요.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1-제목&quot;&gt;1. 제목&lt;/h2&gt;
+
+&lt;h1 id=&quot;제목-1&quot;&gt;제목 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;제목-2&quot;&gt;제목 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;제목-3&quot;&gt;제목 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;제목-4&quot;&gt;제목 4&lt;/h4&gt;
+
+&lt;h5 id=&quot;제목-5&quot;&gt;제목 5&lt;/h5&gt;
+
+&lt;h6 id=&quot;제목-6&quot;&gt;제목 6&lt;/h6&gt;
+
+&lt;h3 id=&quot;1-1-제목-정렬&quot;&gt;1-1. 제목 정렬&lt;/h3&gt;
+
+&lt;h5 id=&quot;왼쪽기본&quot;&gt;왼쪽(기본)&lt;/h5&gt;
+
+&lt;h5 class=&quot;center&quot; id=&quot;가운데&quot;&gt;가운데&lt;/h5&gt;
+
+&lt;h5 class=&quot;right&quot; id=&quot;오른쪽&quot;&gt;오른쪽&lt;/h5&gt;
+
+&lt;h2 id=&quot;2-본문&quot;&gt;2. 본문&lt;/h2&gt;
+
+&lt;p&gt;탄핵소추의 의결을 받은 자는 탄핵심판이 있을 때까지 &lt;a href=&quot;#&quot;&gt;링크&lt;/a&gt; 그 권한행사가 정지된다. 제2항과 제3항의 처분에 대하여는 &lt;strong&gt;굵게&lt;/strong&gt; 법원에 제소할 수 없다. 선거와 국민투표의 공정한 관리 &lt;em&gt;기울임&lt;/em&gt; 및 정당에 관한 사무를 처리하기 위하여 5&lt;sup&gt;3&lt;/sup&gt; = 125 선거관리위원회를 둔다. 국무총리는 대통령을 보좌하며, H&lt;sub&gt;2&lt;/sub&gt;O 행정에 관하여 대통령의 명을 받아 행정각부를 통할한다. 정당은 법률이 정하는 바에 의하여 &lt;u&gt;밑줄&lt;/u&gt; 국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;파일명&lt;/code&gt; 정당운영에 필요한 자금을 보조할 수 있다. 모든 국민은 종교의 자유를 가진다. 국회의원은 법률이 정하는 직을 겸할 수 없다. 감사원은 &lt;del&gt;가운데 줄&lt;/del&gt; 세입·세출의 결산을 매년 검사하여 대통령과 차년도국회에 &lt;mark&gt;형광펜&lt;/mark&gt; 그 결과를 보고하여야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-이미지&quot;&gt;3. 이미지&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://placehold.it/800x400&quot; alt=&quot;큰 이미지&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/400x200&quot; alt=&quot;중간 이미지&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/200x200&quot; alt=&quot;작은 이미지&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-1-이미지-가운데-정렬&quot;&gt;3-1. 이미지 가운데 정렬&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://placehold.it/200x200&quot; alt=&quot;이미지 가운데 정렬&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-인용구&quot;&gt;4. 인용구&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;나는 헌법을 준수하고 국가를 보위하며 조국의 평화적 통일과 국민의 자유와 복리의 증진 및 민족문화의 창달에 노력하여 대통령으로서의 직책을 성실히 수행할 것을 국민 앞에 엄숙히 선서합니다. 모든 국민은 통신의 비밀을 침해받지 아니한다. 국회의원은 법률이 정하는 직을 겸할 수 없다. 국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;5-리스트&quot;&gt;5. 리스트&lt;/h2&gt;
+
+&lt;h3 id=&quot;순서가-없는-리스트&quot;&gt;순서가 없는 리스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.&lt;/li&gt;
+  &lt;li&gt;모든 국민은 법률이 정하는 바에 의하여 국방의 의무를 진다.&lt;/li&gt;
+  &lt;li&gt;탄핵소추의 의결을 받은 자는 탄핵심판이 있을 때까지 그 권한행사가 정지된다.
+    &lt;ol&gt;
+      &lt;li&gt;국회는 의원의 자격을 심사하며, 의원을 징계할 수 있다. 국가는 모성의 보호를 위하여 노력하여야 한다.&lt;/li&gt;
+      &lt;li&gt;공개하지 아니한 회의내용의 공표에 관하여는 법률이 정하는 바에 의한다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;국회는 의장 1인과 부의장 2인을 선출한다. 정부는 회계연도마다 예산안을 편성하여 회계연도 개시 90일전까지 국회에 제출하고, 국회는 회계연도 개시 30일전까지 이를 의결하여야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;순서가-있는-리스트&quot;&gt;순서가 있는 리스트&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다.&lt;/li&gt;
+  &lt;li&gt;각급 선거관리위원회는 선거인명부의 작성등 선거사무와 국민투표사무에 관하여 관계 행정기관에 필요한 지시를 할 수 있다.&lt;/li&gt;
+  &lt;li&gt;예비비는 총액으로 국회의 의결을 얻어야 한다. 예비비의 지출은 차기국회의 승인을 얻어야 한다.
+    &lt;ul&gt;
+      &lt;li&gt;국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야 하며, 농지의 소작제도는 금지된다.&lt;/li&gt;
+      &lt;li&gt;모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;형사피의자 또는 형사피고인으로서 구금되었던 자가 법률이 정하는 불기소처분을 받거나 무죄판결을 받은 때에는 법률이 정하는 바에 의하여 국가에 정당한 보상을 청구할 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;정의-리스트&quot;&gt;정의 리스트&lt;/h3&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;대통령은 제3항과 제4&lt;/dt&gt;
+  &lt;dd&gt;국회의원은 그 지위를 남용하여 국가·공공단체 또는 기업체와의 계약이나 그 처분에 의하여 재산상의 권리·이익 또는 직위를 취득하거나 타인을 위하여 그 취득을 알선할 수 없다.&lt;/dd&gt;
+  &lt;dt&gt;체포·구속·압수 또&lt;/dt&gt;
+  &lt;dd&gt;헌법개정안은 국회가 의결한 후 30일 이내에 국민투표에 붙여 국회의원선거권자 과반수의 투표와 투표자 과반수의 찬성을 얻어야 한다.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h2 id=&quot;6-표&quot;&gt;6. 표&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;상단1&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;상단2&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;상단3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;셀1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;셀2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;셀3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;셀4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;셀5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;셀6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;셀1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;셀2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;셀3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;셀4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;셀5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;셀6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;하단1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;하단2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;하단3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;7-코드-스타일&quot;&gt;7. 코드 스타일&lt;/h2&gt;
+
+&lt;h3 id=&quot;코드-하이라이팅&quot;&gt;코드 하이라이팅&lt;/h3&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;#container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-240px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;일반적인-코드&quot;&gt;일반적인 코드&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;awesome&quot;&amp;gt;
+  &amp;lt;p&amp;gt;This is great isn't it?&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;</content><author><name></name></author><category term="샘플 포스트" /><category term="테스트" /><category term="스타일" /><summary type="html">이 글은 스타일을 모아둔 것입니다. 소스 코드를 확인하여 스타일을 적용하는 방법을 알아보세요.</summary></entry></feed>
