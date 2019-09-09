@@ -492,6 +492,9 @@ nav a {
 .archive a {
   color: #343a40;
 }
+.archive a:hover {
+  color: #868e96;
+}
 .archive time {
   color: #868e96;
   font-size: 14px;

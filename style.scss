@@ -492,6 +492,9 @@ nav {
   a {
     color: $base-color;
   }
+  a:hover{
+    color: $base-lighten-color
+  }
   time {
     color: $base-lighten-color;
     font-size: $small-font-size;
