@@ -1,4 +1,4 @@
-—--
+---
 title: "[Jekyll] How to install the best Jekyll theme for your blog - part 1"
 subtitle: "For people who want to make a personal blog…"
 categories: [jekyll]
@@ -6,7 +6,8 @@ tags:
   - jekyll [지킬]
   - github [깃허브]
 published: true
-—--
+---
+
 Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.
 
 I didn't learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren't a programmer it might be easier to understand since I don't throw out professional terms haha.
