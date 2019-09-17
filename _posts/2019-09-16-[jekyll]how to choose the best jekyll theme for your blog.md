@@ -63,7 +63,7 @@ Click `fork`. Then it will copy this repository to yours. Now if you go to your 
 
 Now we are going to change the name(`Kiko_Now`) to `your account name`. Go to settings and change your repository name as (USERNAME.github.io). In my case, it will be `reidhock.github.io`. This will be your blog address!
 
-![_config.yml]({{ site.baseurl }}/images/4-jekyll-2019-09-16.png/400x200){: width="50%"}
+![_config.yml]({{ site.baseurl }}/images/4-jekyll-2019-09-16.png){: width="50%"}
 
 If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let's download it to a local computer.
 
