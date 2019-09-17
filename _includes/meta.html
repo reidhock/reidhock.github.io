@@ -18,3 +18,7 @@
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="twitter:title" content="{{ page.title }}" />
     {% endif %}
+    {% if page.subtitle %}
+    <meta name="description" content="{{ page.subtitle }}">
+    <meta property="og:description" content="{{ page.subtitle }}" />
+    {% endif %}
