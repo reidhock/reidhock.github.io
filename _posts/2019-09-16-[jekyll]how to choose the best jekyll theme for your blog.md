@@ -69,7 +69,7 @@ If you followed everything, it is going to look like this. It is up to you how y
 
 ![_config.yml]({{ site.baseurl }}/images/5-jekyll-2019-09-16.png)
 
-Click `clone or download` and `open in desktop`.
+Click `clone or download` and `open in desktop` and download the repository in your local computer. Then you are ready to write new post on your laptop!
 
 If you followed till here, well done! You haven't given up! I didn't realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.
 
