@@ -1,16 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-07T21:14:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[파이썬] 문제 풀이 (6)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (6)" /><published>2019-09-06T00:00:00+09:00</published><updated>2019-09-06T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(6)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-17T09:58:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[파이썬] 문제 풀이 (7)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (7)" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(7)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">&lt;p&gt;오늘은 재귀함수에 알아보고자 한다.
+재귀 함수는 &lt;em&gt;하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것&lt;/em&gt;을 말한다.
+모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.&lt;/p&gt;
+
+&lt;p&gt;재귀 알고리즘은 사람이 이해하기 쉽게 쓰여지고 트리형 자료구조와 잘 어울린다. 하지만 반복되는 알고리즘에 비하면 시간 효율성(둘 다 O(n))은 같지만 효율성은 더 떨어진다. 따라서 언제 어디에서 쓸 지를 신중히 결정해야겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python7.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#재귀함수
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#재귀함수와 쌍이 되는 반복되는 구조
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
@@ -19,7 +25,115 @@
         &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (4)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (4)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(4)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/">&lt;p&gt;오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘은 재귀함수에 알아보고자 한다. 재귀 함수는 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것을 말한다. 모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (6)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (6)" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(6)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python6.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;이유덕,이재영,권종표,이재영,박민호,강상희,이재영,김지완,최승혁,이성연,박영서,박민호,전경헌,송정환,김재성,이유덕,전경헌&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;,&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#1. 김씨와 이씨는 각각 몇 명 인가요?
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#names list에서 하나씩 뽑아서 이것의 첫번째 값을 a list에 넣는다.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#count는 list안의 요소의 갯수를 알려준다.
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#2. &quot;이재영&quot;이란 이름이 몇번 반복되나요?
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이재영&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#3. 중복을 제거한 이름을 출력하세요.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#set은 중복을 제거하고 순서가 없다(unordered)
+#교집합, 차집합, 합집합에 유용하게 이용된다.
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#4. 중복을 제거한 이릉믈 오름차순으로 정렬하여 출력하세요.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;출처 : &lt;a href=&quot;http://codingdojang.com/scode/410?orderby=&amp;amp;langby=#answer-filter-area&quot;&gt;코딩도장&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 1</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 1" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">&lt;p&gt;Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.&lt;/p&gt;
+
+&lt;p&gt;I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw some professional terms haha.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-jekyll&quot;&gt;What is Jekyll?&lt;/h2&gt;
+&lt;p&gt;Our friend, wikipedia says&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Jekyll is a &lt;strong&gt;simple&lt;/strong&gt;, &lt;strong&gt;blog-aware&lt;/strong&gt;, &lt;strong&gt;static site generator&lt;/strong&gt; for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder, it is distributed under the open source MIT license.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Basically, people use Jekyll because it is light and easy to use. When I use Jekyll first, I didn’t know anything about it. But after 1~2 weeks, I found myself making this blog.&lt;/p&gt;
+
+&lt;p&gt;if you aren’t a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!&lt;/p&gt;
+
+&lt;h2 id=&quot;preparation&quot;&gt;Preparation &lt;/h2&gt;
+&lt;p&gt;By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don’t get scared to new tools. they are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
+In this part, I am going to go through followings and explain one by one.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Do I even like Jekyll themes?&lt;/li&gt;
+  &lt;li&gt;Create GitHub Account&lt;/li&gt;
+  &lt;li&gt;Install a theme and Jekyll&lt;/li&gt;
+  &lt;li&gt;Tools(Atom, SourceTree)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;jekyll-themes&quot;&gt;Jekyll themes&lt;/h3&gt;
+&lt;p&gt;First, you need to see if you even want to use Jekyll to make your own blog. Go visit following links and see if there is a template that you want to use first.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;http://jekyllthemes.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jekyllthemes.io/&quot;&gt;https://jekyllthemes.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In my case, I wanted a simple and easy-to-use theme. A theme, &lt;a href=&quot;https://aweekj.github.io/kiko-now/&quot;&gt;Kiko_Now&lt;/a&gt;, is what I am currently using for my blog. I chose this because I didn’t have to mess with a new programming language, &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;, and easy to navigate throughout the pages.&lt;/p&gt;
+
+&lt;p&gt;So from here, I will continue this post based on Kiko_Now theme.&lt;/p&gt;
+
+&lt;h3 id=&quot;github&quot;&gt;GitHub&lt;/h3&gt;
+&lt;p&gt;GitHub is commonly used to host open source projects among many programmers. I understood it as programmers’ facebook/Google Drive. They share their codes and applications they’ve built and comment each other through GitHub. Lastly, they can save their work in Github repository. In our case, we are going to use GitHub for free repositories and a free blog domain name. If you want to know more, click the following youtube video link that GitHub provides.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://youtu.be/2MsN8gpT6jY&quot;&gt;Introduction to GitHub Pages&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So now we know what theme we want to use. The next step is creating a new Github account. if you already have an account, you can skip this part.
+Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create a new account.&lt;/p&gt;
+
+&lt;p&gt;I highly recommend to read all the tutorials and guides. You don’t have to understand but get a sense of it. That is enough for now.&lt;/p&gt;
+
+&lt;p&gt;Once you successfully make a new account(GitHub might make you create a new repository. Don’t get scared. just make one for them haha), next step is going to a &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; Kiko_Now theme. &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; is an action that you copy all the files and folders from a repository that you want to copy to your repository. Go to &lt;a href=&quot;https://github.com/AWEEKJ/kiko-now&quot;&gt;https://github.com/AWEEKJ/kiko-now&lt;/a&gt;. Then you will see this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;click &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt;. Then it will copy this repository to yours. Now if you go to your own repository. you will see the exact same title and contents on your repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;This is a very important part.&lt;/strong&gt; click the repository that you just forked then you will see this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/3-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we are going to change the name(&lt;code class=&quot;highlighter-rouge&quot;&gt;Kiko_Now&lt;/code&gt;) to &lt;code class=&quot;highlighter-rouge&quot;&gt;your account name&lt;/code&gt;. go to settings and change your repository name as (USERNAME.github.io). In my case, it will be &lt;code class=&quot;highlighter-rouge&quot;&gt;reidhock.github.io&lt;/code&gt;. This will be your blog address!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/4-jekyll-2019-09-16.png/400x200&quot; alt=&quot;_config.yml&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you followed everything, it is going to look like this. it is up to you how you are going to write new posts. you can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/5-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;clone or download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open in desktop&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you followed till here, well done! you haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.&lt;/p&gt;
+
+&lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 index와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (4)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (4)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(4)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/">&lt;p&gt;오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.&lt;/p&gt;
 
 &lt;p&gt;아무튼… 오늘 풀 문제는 이진 탐색에 관한 문제이다.&lt;/p&gt;
 
@@ -67,21 +181,7 @@
 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt;부터 시작해서 이진탐색을 하게 된다면 오히려 선형 탐색보다 수행 시간이 더 걸릴 수 있다.&lt;br /&gt;
 아직 실무에서 직접 경험해보지는 않았지만 이런 점들을 고려하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 만들 때 되도록이면 정렬이 될 수 있게 신경을 써주면 되지 않을까라는 생각을 해본다.&lt;/p&gt;
 
-&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 index와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (3)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (3)" /><published>2019-09-03T00:00:00+09:00</published><updated>2019-09-03T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(3)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/">&lt;p&gt;서론
+&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (3)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (3)" /><published>2019-09-03T00:00:00+09:00</published><updated>2019-09-03T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(3)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/">&lt;p&gt;서론
 오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다.
 매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다.&lt;/p&gt;
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>[파이썬] 문제 풀이 (6) – Lee + Developer – blog by WoongHee Lee</title>
+  <title>[파이썬] 문제 풀이 (7) – Lee + Developer – blog by WoongHee Lee</title>
 
       <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,20 +9,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="문제
-
+    <meta name="description" content="오늘은 재귀함수에 알아보고자 한다.
+재귀 함수는 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것을 말한다.
+모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.
 
 " />
-    <meta property="og:description" content="문제
-
+    <meta property="og:description" content="오늘은 재귀함수에 알아보고자 한다.
+재귀 함수는 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것을 말한다.
+모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.
 
 " />
     
     <meta name="author" content="Lee + Developer" />
 
     
-    <meta property="og:title" content="[파이썬] 문제 풀이 (6)" />
-    <meta property="twitter:title" content="[파이썬] 문제 풀이 (6)" />
+    <meta property="og:title" content="[파이썬] 문제 풀이 (7)" />
+    <meta property="twitter:title" content="[파이썬] 문제 풀이 (7)" />
     
   <!-- Async font loading -->
 <script>
@@ -87,11 +89,11 @@
 
     <div id="main" role="main" class="container">
       <article class="post">
-  <h1>[파이썬] 문제 풀이 (6)</h1>
-  <h2>[사이냅소프트 면접문제] set 자료형, count, split...</h2>
+  <h1>[파이썬] 문제 풀이 (7)</h1>
+  <h2>[프로그래머스 문제] 재귀 함수</h2>
   <div clsss="meta">
     <span class="date">
-      2019-09-16
+      2019-09-17
     </span>
 
     <ul class="tag">
@@ -112,50 +114,45 @@
   </div>
 
   <div class="entry">
-    <h2 id="문제">문제</h2>
-<p><img src="/images/python6.png" alt="_config.yml" /></p>
+    <p>오늘은 재귀함수에 알아보고자 한다.
+재귀 함수는 <em>하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것</em>을 말한다.
+모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.</p>
+
+<p>재귀 알고리즘은 사람이 이해하기 쉽게 쓰여지고 트리형 자료구조와 잘 어울린다. 하지만 반복되는 알고리즘에 비하면 시간 효율성(둘 다 O(n))은 같지만 효율성은 더 떨어진다. 따라서 언제 어디에서 쓸 지를 신중히 결정해야겠다.</p>
+
+<h2 id="문제">문제</h2>
+<p><img src="/images/python7.png" alt="_config.yml" /></p>
 
 <h2 id="풀이">풀이</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">names</span> <span class="o">=</span> <span class="s">"이유덕,이재영,권종표,이재영,박민호,강상희,이재영,김지완,최승혁,이성연,박영서,박민호,전경헌,송정환,김재성,이유덕,전경헌"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
-
-<span class="c1">#1. 김씨와 이씨는 각각 몇 명 인가요?
-</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span> <span class="c1">#names list에서 하나씩 뽑아서 이것의 첫번째 값을 a list에 넣는다.
-</span><span class="k">print</span><span class="p">(</span><span class="s">"김씨 수 : </span><span class="si">%</span><span class="s">d"</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">"김"</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"이씨 수 : </span><span class="si">%</span><span class="s">d"</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">"이"</span><span class="p">)))</span>
-<span class="c1">#count는 list안의 요소의 갯수를 알려준다.
-</span>
-<span class="c1">#2. "이재영"이란 이름이 몇번 반복되나요?
-</span><span class="k">print</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">"이재영"</span><span class="p">))</span>
-
-<span class="c1">#3. 중복을 제거한 이름을 출력하세요.
-</span><span class="n">unique_N</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">unique_N</span><span class="p">)</span>
-<span class="c1">#set은 중복을 제거하고 순서가 없다(unordered)
-#교집합, 차집합, 합집합에 유용하게 이용된다.
-</span>
-<span class="c1">#4. 중복을 제거한 이릉믈 오름차순으로 정렬하여 출력하세요.
-</span><span class="n">unique_N</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">unique_N</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">a</span><span class="p">):</span> <span class="c1">#재귀함수
+</span>    <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">solution</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">solution</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>출처 : <a href="http://codingdojang.com/scode/410?orderby=&amp;langby=#answer-filter-area">코딩도장</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">#재귀함수와 쌍이 되는 반복되는 구조
+</span>    <span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">b</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">b</span>
+</code></pre></div></div>
 
   </div>
 
   <div class="pagination">
     
       <span class="prev" >
-          <a href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">
-            &#xE000; [Jekyll] How to install the best Jekyll theme for your blog - part 1
+          <a href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">
+            &#xE000; [파이썬] 문제 풀이 (6)
           </a>
       </span>
     
-    
-      <span class="next" >
-          <a href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">
-            [파이썬] 문제 풀이 (7) &#xE001;
-          </a>
-      </span>
     
   </div>
 
@@ -240,8 +237,8 @@
 
 		ga('create', 'UA-106768275-3', 'auto');
 		ga('send', 'pageview', {
-		  'page': '/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/',
-		  'title': '[파이썬] 문제 풀이 (6)'
+		  'page': '/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/',
+		  'title': '[파이썬] 문제 풀이 (7)'
 		});
 	</script>
 	<!-- End Google Analytics -->
