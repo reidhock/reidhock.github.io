@@ -1,6 +1,6 @@
 ---
 title: "[Jekyll] How to install the best Jekyll theme for your blog - part 1"
-subtitle: "For people who want to make a personal blog…"
+subtitle: "For people who want to make a personal blog..."
 categories: [jekyll]
 tags:
   - jekyll [지킬]
@@ -8,9 +8,12 @@ tags:
 published: true
 ---
 
+***
 Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.
 
 I didn't learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren't a programmer it might be easier to understand since I don't throw out professional terms haha.
+
+***
 
 ## What is Jekyll?
 Our friend, wikipedia says
@@ -21,7 +24,7 @@ Basically, people use Jekyll because it is light and easy to use. When I first u
 If you aren't a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!
 
 ## Preparation 
-By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don't get scared by new tools. They are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
+By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don't get scared by new tools. They are user-friendly and easy-to-use tools. (Maybe not Github...maybe...)
 In this part, I am going to go through the following and explain one by one.
 
 1. Do I even like Jekyll themes?
@@ -69,7 +72,7 @@ If you followed everything, it is going to look like this. It is up to you how y
 
 ![_config.yml]({{ site.baseurl }}/images/5-jekyll-2019-09-16.png)
 
-Click `clone or download` and `open in desktop` and download the repository in your local computer. Then you are ready to write new post on your laptop!
+Click `clone or download` and `open in desktop` and download the repository in your local computer. Then you are ready to write a new post on your laptop!
 
 If you followed till here, well done! You haven't given up! I didn't realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.
 

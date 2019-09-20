@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-17T09:58:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[파이썬] 문제 풀이 (7)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (7)" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(7)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">&lt;p&gt;오늘은 재귀함수에 알아보고자 한다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-18T10:48:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 2</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 2" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog%202</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">&lt;hr /&gt;
+
+&lt;hr /&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html"></summary></entry><entry><title type="html">[파이썬] 문제 풀이 (7)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (7)" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(7)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">&lt;p&gt;오늘은 재귀함수에 알아보고자 한다.
 재귀 함수는 &lt;em&gt;하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것&lt;/em&gt;을 말한다.
 모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.&lt;/p&gt;
 
@@ -51,9 +53,12 @@
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;출처 : &lt;a href=&quot;http://codingdojang.com/scode/410?orderby=&amp;amp;langby=#answer-filter-area&quot;&gt;코딩도장&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 1</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 1" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">&lt;p&gt;Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.&lt;/p&gt;
+&lt;p&gt;출처 : &lt;a href=&quot;http://codingdojang.com/scode/410?orderby=&amp;amp;langby=#answer-filter-area&quot;&gt;코딩도장&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 1</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 1" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">&lt;hr /&gt;
+&lt;p&gt;Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.&lt;/p&gt;
 
-&lt;p&gt;I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw some professional terms haha.&lt;/p&gt;
+&lt;p&gt;I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw out professional terms haha.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;what-is-jekyll&quot;&gt;What is Jekyll?&lt;/h2&gt;
 &lt;p&gt;Our friend, wikipedia says&lt;/p&gt;
@@ -61,13 +66,13 @@
   &lt;p&gt;“Jekyll is a &lt;strong&gt;simple&lt;/strong&gt;, &lt;strong&gt;blog-aware&lt;/strong&gt;, &lt;strong&gt;static site generator&lt;/strong&gt; for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder, it is distributed under the open source MIT license.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Basically, people use Jekyll because it is light and easy to use. When I use Jekyll first, I didn’t know anything about it. But after 1~2 weeks, I found myself making this blog.&lt;/p&gt;
+&lt;p&gt;Basically, people use Jekyll because it is light and easy to use. When I first used Jekyll, I didn’t know anything about it. But after 1~2 weeks, I found myself making this blog.&lt;/p&gt;
 
-&lt;p&gt;if you aren’t a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!&lt;/p&gt;
+&lt;p&gt;If you aren’t a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!&lt;/p&gt;
 
 &lt;h2 id=&quot;preparation&quot;&gt;Preparation &lt;/h2&gt;
-&lt;p&gt;By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don’t get scared to new tools. they are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
-In this part, I am going to go through followings and explain one by one.&lt;/p&gt;
+&lt;p&gt;By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don’t get scared by new tools. They are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
+In this part, I am going to go through the following and explain one by one.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Do I even like Jekyll themes?&lt;/li&gt;
@@ -77,49 +82,49 @@ In this part, I am going to go through followings and explain one by one.&lt;/p&
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;jekyll-themes&quot;&gt;Jekyll themes&lt;/h3&gt;
-&lt;p&gt;First, you need to see if you even want to use Jekyll to make your own blog. Go visit following links and see if there is a template that you want to use first.&lt;/p&gt;
+&lt;p&gt;First, you need to see if you even want to use Jekyll to make your own blog. Go visit the following links and see if there is a template that you want to use first.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;http://jekyllthemes.org&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://jekyllthemes.io/&quot;&gt;https://jekyllthemes.io&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;In my case, I wanted a simple and easy-to-use theme. A theme, &lt;a href=&quot;https://aweekj.github.io/kiko-now/&quot;&gt;Kiko_Now&lt;/a&gt;, is what I am currently using for my blog. I chose this because I didn’t have to mess with a new programming language, &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;, and easy to navigate throughout the pages.&lt;/p&gt;
+&lt;p&gt;In my case, I wanted a simple and easy-to-use theme. A theme, &lt;a href=&quot;https://aweekj.github.io/kiko-now/&quot;&gt;Kiko_Now&lt;/a&gt;, is what I am currently using for my blog. I chose this because I didn’t have to mess with a new programming language, &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;, and it’s easy to navigate throughout the pages.&lt;/p&gt;
 
 &lt;p&gt;So from here, I will continue this post based on Kiko_Now theme.&lt;/p&gt;
 
 &lt;h3 id=&quot;github&quot;&gt;GitHub&lt;/h3&gt;
-&lt;p&gt;GitHub is commonly used to host open source projects among many programmers. I understood it as programmers’ facebook/Google Drive. They share their codes and applications they’ve built and comment each other through GitHub. Lastly, they can save their work in Github repository. In our case, we are going to use GitHub for free repositories and a free blog domain name. If you want to know more, click the following youtube video link that GitHub provides.&lt;/p&gt;
+&lt;p&gt;GitHub is commonly used to host open source projects among many programmers. I understood it as programmers’ facebook/Google Drive. They share their codes and applications they’ve built and comment on each other’s work through GitHub. Lastly, they can save their work in Github repository. In our case, we are going to use GitHub for free repositories and a free blog domain name. If you want to know more, click the following youtube video link that GitHub provides.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://youtu.be/2MsN8gpT6jY&quot;&gt;Introduction to GitHub Pages&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;So now we know what theme we want to use. The next step is creating a new Github account. if you already have an account, you can skip this part.
 Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create a new account.&lt;/p&gt;
 
-&lt;p&gt;I highly recommend to read all the tutorials and guides. You don’t have to understand but get a sense of it. That is enough for now.&lt;/p&gt;
+&lt;p&gt;I highly recommend to read all the tutorials and guides. You don’t have to understand but just get a sense of it. That is enough for now.&lt;/p&gt;
 
-&lt;p&gt;Once you successfully make a new account(GitHub might make you create a new repository. Don’t get scared. just make one for them haha), next step is going to a &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; Kiko_Now theme. &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; is an action that you copy all the files and folders from a repository that you want to copy to your repository. Go to &lt;a href=&quot;https://github.com/AWEEKJ/kiko-now&quot;&gt;https://github.com/AWEEKJ/kiko-now&lt;/a&gt;. Then you will see this.&lt;/p&gt;
+&lt;p&gt;Once you successfully make a new account(GitHub might make you create a new repository. Don’t get scared. Just make one for them haha), next step is going to a &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; Kiko_Now theme. &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; is an action that you copy all the files and folders from a repository that you want to copy to your repository. Go to &lt;a href=&quot;https://github.com/AWEEKJ/kiko-now&quot;&gt;https://github.com/AWEEKJ/kiko-now&lt;/a&gt;. Then you will see this.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;click &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt;. Then it will copy this repository to yours. Now if you go to your own repository. you will see the exact same title and contents on your repository.&lt;/p&gt;
+&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt;. Then it will copy this repository to yours. Now if you go to your own repository, you will see the exact same title and contents on your repository.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;This is a very important part.&lt;/strong&gt; click the repository that you just forked then you will see this.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/3-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Now we are going to change the name(&lt;code class=&quot;highlighter-rouge&quot;&gt;Kiko_Now&lt;/code&gt;) to &lt;code class=&quot;highlighter-rouge&quot;&gt;your account name&lt;/code&gt;. go to settings and change your repository name as (USERNAME.github.io). In my case, it will be &lt;code class=&quot;highlighter-rouge&quot;&gt;reidhock.github.io&lt;/code&gt;. This will be your blog address!&lt;/p&gt;
+&lt;p&gt;Now we are going to change the name(&lt;code class=&quot;highlighter-rouge&quot;&gt;Kiko_Now&lt;/code&gt;) to &lt;code class=&quot;highlighter-rouge&quot;&gt;your account name&lt;/code&gt;. Go to settings and change your repository name as (USERNAME.github.io). In my case, it will be &lt;code class=&quot;highlighter-rouge&quot;&gt;reidhock.github.io&lt;/code&gt;. This will be your blog address!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/4-jekyll-2019-09-16.png/400x200&quot; alt=&quot;_config.yml&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/4-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you followed everything, it is going to look like this. it is up to you how you are going to write new posts. you can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.&lt;/p&gt;
+&lt;p&gt;If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/5-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;clone or download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open in desktop&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;clone or download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open in desktop&lt;/code&gt; and download the repository in your local computer. Then you are ready to write a new post on your laptop!&lt;/p&gt;
 
-&lt;p&gt;If you followed till here, well done! you haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.&lt;/p&gt;
+&lt;p&gt;If you followed till here, well done! You haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.&lt;/p&gt;
 
-&lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
+&lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
@@ -286,10 +291,4 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 TO_CHAR(DATE_COLUMN_NAME, 'YYYY/MM/DD HH24:MI:SS') AS 별칭
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ajax" /><category term="oracle [오라클]" /><summary type="html">제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.</summary></entry><entry><title type="html">[인사말]첫번째 포스팅…!</title><link href="http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85/" rel="alternate" type="text/html" title="[인사말]첫번째 포스팅...!" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8%20%ED%8F%AC%EC%8A%A4%ED%8C%85...</id><content type="html" xml:base="http://localhost:4000/%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%AC%EC%8A%A4%ED%8C%85/">&lt;p&gt;안녕하세요. 처음 블로그를 만들때는 그때그때 모르는 것을 저장하기 위한 용도로 생각하고 만들었지만, 다른 개발자들과 함께 고민하고 소통하는 시간을 가지며 함께 더 좋은 프로그래머로 성장하면 좋을 것 같아 이렇게 인사드립니다.&lt;/p&gt;
-
-&lt;p&gt;간단히 제 소개를 하자면 다른 분야에서 공부를 마치고 남들보다는 조금은 뒤늦게 프로그래밍에 관심을 갖기 시작하여 현재는 국비지원을 통해 웹 개발자가 되기 위해서 공부를 하고 있는 중입니다.&lt;/p&gt;
-
-&lt;p&gt;앞으로의 제 계획은 블로그를 시작한 가장 큰 이유 중 하나인 프로젝트를 진행하면서 부딫히는 문제들에 대해서 포스팅하고 기회가 되면 개발자로서의 성장 과정이나 취업과정, 국비교육에 대해서도 이야기 나누고 싶습니다.&lt;/p&gt;
-
-&lt;p&gt;한번도 블로그를 관리해본 적이 없어서 미숙한 점이 많겠지만 함께 소통하고 고민하면서 서로에게 의미있는 공간으로 만들 수 있으면 좋겠습니다.&lt;/p&gt;</content><author><name></name></author><category term="random [이것저것]" /><summary type="html">안녕하세요. 처음 블로그를 만들때는 그때그때 모르는 것을 저장하기 위한 용도로 생각하고 만들었지만, 다른 개발자들과 함께 고민하고 소통하는 시간을 가지며 함께 더 좋은 프로그래머로 성장하면 좋을 것 같아 이렇게 인사드립니다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ajax" /><category term="oracle [오라클]" /><summary type="html">제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.</summary></entry></feed>

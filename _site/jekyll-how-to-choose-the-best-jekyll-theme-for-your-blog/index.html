@@ -7,14 +7,12 @@
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <meta property="og:image" content="/images/logo.jpg">
+    <meta name="keywords" content="programming, blog, java, python, jekyll, oracle, 자바, 파이썬, 지킬, 프로그래밍, 개발자, 블로그">
 
     
-    <meta name="description" content="Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.
-
-" />
-    <meta property="og:description" content="Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.
-
-" />
+    <meta name="description" content="For people who want to make a personal blog..." />
+    <meta property="og:description" content="For people who want to make a personal blog..." />
     
     <meta name="author" content="Lee + Developer" />
 
@@ -22,6 +20,7 @@
     <meta property="og:title" content="[Jekyll] How to install the best Jekyll theme for your blog - part 1" />
     <meta property="twitter:title" content="[Jekyll] How to install the best Jekyll theme for your blog - part 1" />
     
+
   <!-- Async font loading -->
 <script>
   window.WebFontConfig = {
@@ -110,9 +109,12 @@
   </div>
 
   <div class="entry">
-    <p>Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living out of my country as well. So from now on, I will try to write some of future posts in English.</p>
+    <hr />
+<p>Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.</p>
 
-<p>I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw some professional terms haha.</p>
+<p>I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw out professional terms haha.</p>
+
+<hr />
 
 <h2 id="what-is-jekyll">What is Jekyll?</h2>
 <p>Our friend, wikipedia says</p>
@@ -120,13 +122,13 @@
   <p>“Jekyll is a <strong>simple</strong>, <strong>blog-aware</strong>, <strong>static site generator</strong> for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub’s co-founder, it is distributed under the open source MIT license.”</p>
 </blockquote>
 
-<p>Basically, people use Jekyll because it is light and easy to use. When I use Jekyll first, I didn’t know anything about it. But after 1~2 weeks, I found myself making this blog.</p>
+<p>Basically, people use Jekyll because it is light and easy to use. When I first used Jekyll, I didn’t know anything about it. But after 1~2 weeks, I found myself making this blog.</p>
 
-<p>if you aren’t a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!</p>
+<p>If you aren’t a programmer, follow this post and explore later. It will be challenging but eventually you will get it. At the end of this post you will have your own blog!</p>
 
 <h2 id="preparation">Preparation </h2>
-<p>By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don’t get scared to new tools. they are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
-In this part, I am going to go through followings and explain one by one.</p>
+<p>By following this post, you are going to post and update a blog by using some tools(SourceTree, Atom, Github) that help you manage your blog easier. Don’t get scared by new tools. They are user-friendly and easy-to-use tools. (Maybe not Github…maybe…)
+In this part, I am going to go through the following and explain one by one.</p>
 
 <ol>
   <li>Do I even like Jekyll themes?</li>
@@ -136,47 +138,47 @@ In this part, I am going to go through followings and explain one by one.</p>
 </ol>
 
 <h3 id="jekyll-themes">Jekyll themes</h3>
-<p>First, you need to see if you even want to use Jekyll to make your own blog. Go visit following links and see if there is a template that you want to use first.</p>
+<p>First, you need to see if you even want to use Jekyll to make your own blog. Go visit the following links and see if there is a template that you want to use first.</p>
 
 <p><a href="http://jekyllthemes.org/">http://jekyllthemes.org</a></p>
 
 <p><a href="https://jekyllthemes.io/">https://jekyllthemes.io</a></p>
 
-<p>In my case, I wanted a simple and easy-to-use theme. A theme, <a href="https://aweekj.github.io/kiko-now/">Kiko_Now</a>, is what I am currently using for my blog. I chose this because I didn’t have to mess with a new programming language, <code class="highlighter-rouge">Ruby</code>, and easy to navigate throughout the pages.</p>
+<p>In my case, I wanted a simple and easy-to-use theme. A theme, <a href="https://aweekj.github.io/kiko-now/">Kiko_Now</a>, is what I am currently using for my blog. I chose this because I didn’t have to mess with a new programming language, <code class="highlighter-rouge">Ruby</code>, and it’s easy to navigate throughout the pages.</p>
 
 <p>So from here, I will continue this post based on Kiko_Now theme.</p>
 
 <h3 id="github">GitHub</h3>
-<p>GitHub is commonly used to host open source projects among many programmers. I understood it as programmers’ facebook/Google Drive. They share their codes and applications they’ve built and comment each other through GitHub. Lastly, they can save their work in Github repository. In our case, we are going to use GitHub for free repositories and a free blog domain name. If you want to know more, click the following youtube video link that GitHub provides.</p>
+<p>GitHub is commonly used to host open source projects among many programmers. I understood it as programmers’ facebook/Google Drive. They share their codes and applications they’ve built and comment on each other’s work through GitHub. Lastly, they can save their work in Github repository. In our case, we are going to use GitHub for free repositories and a free blog domain name. If you want to know more, click the following youtube video link that GitHub provides.</p>
 
 <p><a href="https://youtu.be/2MsN8gpT6jY">Introduction to GitHub Pages</a></p>
 
 <p>So now we know what theme we want to use. The next step is creating a new Github account. if you already have an account, you can skip this part.
 Go to <a href="https://github.com/">GitHub</a> and create a new account.</p>
 
-<p>I highly recommend to read all the tutorials and guides. You don’t have to understand but get a sense of it. That is enough for now.</p>
+<p>I highly recommend to read all the tutorials and guides. You don’t have to understand but just get a sense of it. That is enough for now.</p>
 
-<p>Once you successfully make a new account(GitHub might make you create a new repository. Don’t get scared. just make one for them haha), next step is going to a <code class="highlighter-rouge">fork</code> Kiko_Now theme. <code class="highlighter-rouge">fork</code> is an action that you copy all the files and folders from a repository that you want to copy to your repository. Go to <a href="https://github.com/AWEEKJ/kiko-now">https://github.com/AWEEKJ/kiko-now</a>. Then you will see this.</p>
+<p>Once you successfully make a new account(GitHub might make you create a new repository. Don’t get scared. Just make one for them haha), next step is going to a <code class="highlighter-rouge">fork</code> Kiko_Now theme. <code class="highlighter-rouge">fork</code> is an action that you copy all the files and folders from a repository that you want to copy to your repository. Go to <a href="https://github.com/AWEEKJ/kiko-now">https://github.com/AWEEKJ/kiko-now</a>. Then you will see this.</p>
 
 <p><img src="/images/2-jekyll-2019-09-16.png" alt="_config.yml" /></p>
 
-<p>click <code class="highlighter-rouge">fork</code>. Then it will copy this repository to yours. Now if you go to your own repository. you will see the exact same title and contents on your repository.</p>
+<p>Click <code class="highlighter-rouge">fork</code>. Then it will copy this repository to yours. Now if you go to your own repository, you will see the exact same title and contents on your repository.</p>
 
 <p><strong>This is a very important part.</strong> click the repository that you just forked then you will see this.</p>
 
 <p><img src="/images/3-jekyll-2019-09-16.png" alt="_config.yml" /></p>
 
-<p>Now we are going to change the name(<code class="highlighter-rouge">Kiko_Now</code>) to <code class="highlighter-rouge">your account name</code>. go to settings and change your repository name as (USERNAME.github.io). In my case, it will be <code class="highlighter-rouge">reidhock.github.io</code>. This will be your blog address!</p>
+<p>Now we are going to change the name(<code class="highlighter-rouge">Kiko_Now</code>) to <code class="highlighter-rouge">your account name</code>. Go to settings and change your repository name as (USERNAME.github.io). In my case, it will be <code class="highlighter-rouge">reidhock.github.io</code>. This will be your blog address!</p>
 
-<p><img src="/images/4-jekyll-2019-09-16.png/400x200" alt="_config.yml" width="50%" /></p>
+<p><img src="/images/4-jekyll-2019-09-16.png" alt="_config.yml" width="50%" /></p>
 
-<p>If you followed everything, it is going to look like this. it is up to you how you are going to write new posts. you can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.</p>
+<p>If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.</p>
 
 <p><img src="/images/5-jekyll-2019-09-16.png" alt="_config.yml" /></p>
 
-<p>Click <code class="highlighter-rouge">clone or download</code> and <code class="highlighter-rouge">open in desktop</code>.</p>
+<p>Click <code class="highlighter-rouge">clone or download</code> and <code class="highlighter-rouge">open in desktop</code> and download the repository in your local computer. Then you are ready to write a new post on your laptop!</p>
 
-<p>If you followed till here, well done! you haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.</p>
+<p>If you followed till here, well done! You haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.</p>
 
 <p>Thank you!</p>
 
