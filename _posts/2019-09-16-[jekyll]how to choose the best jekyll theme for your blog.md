@@ -68,12 +68,22 @@ Now we are going to change the name(`Kiko_Now`) to `your account name`. Go to se
 
 ![_config.yml]({{ site.baseurl }}/images/4-jekyll-2019-09-16.png){: width="50%"}
 
-If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let's download it to a local computer.
+If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use tools such as Sourcetree and Atom that help you to upload your works from your computer to Github repository. They are free tools and you can easily download online. here are the links to download those two tools.
+
+[SourceTree](https://www.sourcetreeapp.com/)
+
+[Atom](https://atom.io)
+
+Now you are ready to download your repository to your local computer.
 
 ![_config.yml]({{ site.baseurl }}/images/5-jekyll-2019-09-16.png)
 
-Click `clone or download` and `open in desktop` and download the repository in your local computer. Then you are ready to write a new post on your laptop!
+Click `clone or download` and `open in desktop` and download the repository in your local computer. Github will ask you if you want to open it with sourcetree. click `open sourcetree`. if you see this window, you did everything right so far(I already have my own blog folder, so it might look little different).
 
-If you followed till here, well done! You haven't given up! I didn't realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.
+![_config.yml]({{ site.baseurl }}/images/6-jekyll-2019-09-16.png)
+
+Then you are ready to write a new post on your laptop!
+
+If you followed till here, well done! You haven't given up! I didn't realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good for you to explore Github and study how the system works.
 
 Thank you!

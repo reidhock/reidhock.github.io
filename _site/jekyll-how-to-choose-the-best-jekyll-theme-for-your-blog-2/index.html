@@ -88,7 +88,7 @@
   <h2>For people who want to make a personal blog...</h2>
   <div clsss="meta">
     <span class="date">
-      2019-09-17
+      2019-09-22
     </span>
 
     <ul class="tag">
@@ -110,6 +110,64 @@
 
   <div class="entry">
     <hr />
+<p>We are going to pick up what was left in the <a href="https://reidhock.github.io/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">last post(How to choose the best jekyll theme for you blog - part 1)</a>. As I said, it might be tough if it is your first time to use all the tools I introduced or I will. However, the key is go through the difficulties and play with new tools. I guarantee that you will get it eventually. Even I did it. haha Let jump in.</p>
+
+<hr />
+
+<p>Now you have your repository in your laptop and a tool to edit the repository(Atom) and help you upload local changes to Github(Sourcetree).</p>
+
+<p>Let’s open Atom you download since last post. If you don’t know what Atom is go to the their <a href="https://atom.io/">website</a> and explore. If you are too lazy to read everything, just think that it is basically a tool that helps you to write and edit files and navigate a folder.</p>
+
+<p>Let’s find your repository in your computer. go to <code class="highlighter-rouge">file</code> and <code class="highlighter-rouge">open...</code> and find where you downloaded the repository in your laptop. Then you will look at this.</p>
+
+<p><img src="/images/1-jekyll-2019-09-22.png" alt="_config.yml" /></p>
+
+<p>Before we touch anything here, you need to download a plugin that allows you to use <code class="highlighter-rouge">terminal</code> in Atom. Go to preferences. Then, you will see install menu and type and install platformio-ide-terminal. After installing the plugin, you will be able to find litte <code class="highlighter-rouge">+</code> button on the left bottom.
+<img src="/images/2-jekyll-2019-09-22.png" alt="_config.yml" /></p>
+
+<p>if you click the <code class="highlighter-rouge">+</code> button. you will see terminal in Atom. you don’t have to download the plugin but I find it useful.</p>
+
+<p><img src="/images/3-jekyll-2019-09-22.png" alt="_config.yml" /></p>
+
+<p>Now, if you don’t know what terminal is and you think this terminal window seems scary just copy and paste what I wrote here. In order to use Jekyll, of course you need to install jekyll and we are going to do that in terminal.
+type <code class="highlighter-rouge">gem install github-pages</code>. This install plugins like Jekyll, Sass, etc.
+Now you can see the changes on the repository folder by typing <code class="highlighter-rouge">jekyll serve</code>.
+I will explain more about this later but it is faster and easier to see the changes right away instead commit and push to github respository and then see the changes.</p>
+
+<p>Now, let’s explore the folder/kiko_now theme based blog.</p>
+
+<p><img src="/images/4-jekyll-2019-09-22.png" alt="_config.yml" width="50%" /></p>
+
+<p>The folder names speak for theirselves. I will briefly explain these folders.</p>
+
+<p><code class="highlighter-rouge">_includes</code> is a folder that is used for many pages so the creator of this theme put them separately to avoid repeating the code.</p>
+
+<p><code class="highlighter-rouge">_layout</code> is a folder that determines how the page would look.</p>
+
+<p><code class="highlighter-rouge">_post</code> is where everything happens. You will write new post here, using <code class="highlighter-rouge">markdown</code> format. Markdown is basically is one of markup languages that help you to write and add some features easily on web. By using this, you don’t have to know all that jazz about html language.</p>
+
+<p><code class="highlighter-rouge">_sass</code> is a folder that makes your blog fancier with lots of colors and fonts.</p>
+
+<p><code class="highlighter-rouge">_site</code>, <code class="highlighter-rouge">.sass-cache</code>, <code class="highlighter-rouge">.git</code> are not necessarily important to know so I will skip.</p>
+
+<p><code class="highlighter-rouge">archive</code>, <code class="highlighter-rouge">theme</code>, <code class="highlighter-rouge">tags</code> will be shown in menu navigation. you can delete <code class="highlighter-rouge">theme</code> folder. Actually you should haha. if you click it, you will know why.</p>
+
+<p><code class="highlighter-rouge">images</code> is where you store all the images for you post.</p>
+
+<p>if you look down, you will see <code class="highlighter-rouge">config.yml</code> file. It is like root of your blog. It takes care of basic settings. For now, let’s just leave how it is and change it later.</p>
+
+<p>As I shortly mentioned, you can check your blog locally by typing <code class="highlighter-rouge">jekyll serve</code> in <code class="highlighter-rouge">terminal</code>. Click <code class="highlighter-rouge">+</code>button on the left bottom of Atom window and type ‘jekyll serve’. You should see this.</p>
+
+<p><img src="/images/6-jekyll-2019-09-22.png" alt="_config.yml" /></p>
+
+<p>Now open your browser and in address menu type <code class="highlighter-rouge">localhost:4000</code>.</p>
+
+<p><img src="/images/7-jekyll-2019-09-22.png" alt="_config.yml" /></p>
+
+<p>then you should be able to see the kiko_now theme blog in your browser.</p>
+
+<hr />
+<p>It is actually taking a lot of effort to cover all the stuff to make a blog. So I will stop it here. who knows, it will have part-3000. haha if you have any questions please leave a comment. I will answer it as soon as I can.</p>
 
 <hr />
 
@@ -118,17 +176,11 @@
   <div class="pagination">
     
       <span class="prev" >
-          <a href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">
-            &#xE000; [파이썬] 문제 풀이 (6)
-          </a>
-      </span>
-    
-    
-      <span class="next" >
           <a href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">
-            [파이썬] 문제 풀이 (7) &#xE001;
+            &#xE000; [파이썬] 문제 풀이 (7)
           </a>
       </span>
+    
     
   </div>
 

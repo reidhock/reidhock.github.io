@@ -1,6 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-18T10:48:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 2</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 2" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog%202</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-23T09:54:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 2</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 2" /><published>2019-09-22T00:00:00+09:00</published><updated>2019-09-22T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog%202</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">&lt;hr /&gt;
+&lt;p&gt;We are going to pick up what was left in the &lt;a href=&quot;https://reidhock.github.io/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/&quot;&gt;last post(How to choose the best jekyll theme for you blog - part 1)&lt;/a&gt;. As I said, it might be tough if it is your first time to use all the tools I introduced or I will. However, the key is go through the difficulties and play with new tools. I guarantee that you will get it eventually. Even I did it. haha Let jump in.&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html"></summary></entry><entry><title type="html">[파이썬] 문제 풀이 (7)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (7)" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(7)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">&lt;p&gt;오늘은 재귀함수에 알아보고자 한다.
+&lt;hr /&gt;
+
+&lt;p&gt;Now you have your repository in your laptop and a tool to edit the repository(Atom) and help you upload local changes to Github(Sourcetree).&lt;/p&gt;
+
+&lt;p&gt;Let’s open Atom you download since last post. If you don’t know what Atom is go to the their &lt;a href=&quot;https://atom.io/&quot;&gt;website&lt;/a&gt; and explore. If you are too lazy to read everything, just think that it is basically a tool that helps you to write and edit files and navigate a folder.&lt;/p&gt;
+
+&lt;p&gt;Let’s find your repository in your computer. go to &lt;code class=&quot;highlighter-rouge&quot;&gt;file&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open...&lt;/code&gt; and find where you downloaded the repository in your laptop. Then you will look at this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/1-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Before we touch anything here, you need to download a plugin that allows you to use &lt;code class=&quot;highlighter-rouge&quot;&gt;terminal&lt;/code&gt; in Atom. Go to preferences. Then, you will see install menu and type and install platformio-ide-terminal. After installing the plugin, you will be able to find litte &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; button on the left bottom.
+&lt;img src=&quot;/images/2-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;if you click the &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; button. you will see terminal in Atom. you don’t have to download the plugin but I find it useful.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/3-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, if you don’t know what terminal is and you think this terminal window seems scary just copy and paste what I wrote here. In order to use Jekyll, of course you need to install jekyll and we are going to do that in terminal.
+type &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install github-pages&lt;/code&gt;. This install plugins like Jekyll, Sass, etc.
+Now you can see the changes on the repository folder by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;.
+I will explain more about this later but it is faster and easier to see the changes right away instead commit and push to github respository and then see the changes.&lt;/p&gt;
+
+&lt;p&gt;Now, let’s explore the folder/kiko_now theme based blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/4-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The folder names speak for theirselves. I will briefly explain these folders.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; is a folder that is used for many pages so the creator of this theme put them separately to avoid repeating the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_layout&lt;/code&gt; is a folder that determines how the page would look.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_post&lt;/code&gt; is where everything happens. You will write new post here, using &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown&lt;/code&gt; format. Markdown is basically is one of markup languages that help you to write and add some features easily on web. By using this, you don’t have to know all that jazz about html language.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_sass&lt;/code&gt; is a folder that makes your blog fancier with lots of colors and fonts.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.sass-cache&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.git&lt;/code&gt; are not necessarily important to know so I will skip.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;archive&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;theme&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;tags&lt;/code&gt; will be shown in menu navigation. you can delete &lt;code class=&quot;highlighter-rouge&quot;&gt;theme&lt;/code&gt; folder. Actually you should haha. if you click it, you will know why.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;images&lt;/code&gt; is where you store all the images for you post.&lt;/p&gt;
+
+&lt;p&gt;if you look down, you will see &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yml&lt;/code&gt; file. It is like root of your blog. It takes care of basic settings. For now, let’s just leave how it is and change it later.&lt;/p&gt;
+
+&lt;p&gt;As I shortly mentioned, you can check your blog locally by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;terminal&lt;/code&gt;. Click &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;button on the left bottom of Atom window and type ‘jekyll serve’. You should see this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/6-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now open your browser and in address menu type &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/7-jekyll-2019-09-22.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;then you should be able to see the kiko_now theme blog in your browser.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;It is actually taking a lot of effort to cover all the stuff to make a blog. So I will stop it here. who knows, it will have part-3000. haha if you have any questions please leave a comment. I will answer it as soon as I can.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">We are going to pick up what was left in the last post(How to choose the best jekyll theme for you blog - part 1). As I said, it might be tough if it is your first time to use all the tools I introduced or I will. However, the key is go through the difficulties and play with new tools. I guarantee that you will get it eventually. Even I did it. haha Let jump in.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (7)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (7)" /><published>2019-09-17T00:00:00+09:00</published><updated>2019-09-17T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(7)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(7)/">&lt;p&gt;오늘은 재귀함수에 알아보고자 한다.
 재귀 함수는 &lt;em&gt;하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것&lt;/em&gt;을 말한다.
 모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.&lt;/p&gt;
 
@@ -116,13 +174,23 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 
 &lt;p&gt;&lt;img src=&quot;/images/4-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use Sourcetree that helps you to upload your works from your computer to Github repository. Therefore, let’s download it to a local computer.&lt;/p&gt;
+&lt;p&gt;If you followed everything, it is going to look like this. It is up to you how you are going to write new posts. You can either edit on github or you can download on your computer and edit locally. In this post, we are going to use tools such as Sourcetree and Atom that help you to upload your works from your computer to Github repository. They are free tools and you can easily download online. here are the links to download those two tools.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.sourcetreeapp.com/&quot;&gt;SourceTree&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://atom.io&quot;&gt;Atom&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you are ready to download your repository to your local computer.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/5-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;clone or download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open in desktop&lt;/code&gt; and download the repository in your local computer. Then you are ready to write a new post on your laptop!&lt;/p&gt;
+&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;clone or download&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;open in desktop&lt;/code&gt; and download the repository in your local computer. Github will ask you if you want to open it with sourcetree. click &lt;code class=&quot;highlighter-rouge&quot;&gt;open sourcetree&lt;/code&gt;. if you see this window, you did everything right so far(I already have my own blog folder, so it might look little different).&lt;/p&gt;
 
-&lt;p&gt;If you followed till here, well done! You haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good to explore Github and study how the system works.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/6-jekyll-2019-09-16.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then you are ready to write a new post on your laptop!&lt;/p&gt;
+
+&lt;p&gt;If you followed till here, well done! You haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good for you to explore Github and study how the system works.&lt;/p&gt;
 
 &lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
 
