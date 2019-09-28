@@ -8,6 +8,8 @@ published: false
 ---
 
 ***
-This is my very first toy project.
+
 
 ***
+
+Based on my experience,

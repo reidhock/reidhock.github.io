@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-23T09:54:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 2</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 2" /><published>2019-09-22T00:00:00+09:00</published><updated>2019-09-22T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog%202</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-28T20:16:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[이것저것] 프로그래머스 코딩테스트 후기</title><link href="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" rel="alternate" type="text/html" title="[이것저것] 프로그래머스 코딩테스트 후기" /><published>2019-09-28T00:00:00+09:00</published><updated>2019-09-28T00:00:00+09:00</updated><id>http://localhost:4000/%5B%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83%5D%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%9B%84%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/">&lt;hr /&gt;
+&lt;p&gt;구직 활동을 하던 중 프로그래머스 주관으로 하는 온라인 잡페어의 온라인 코딩테스트 후기를 쓰려고한다. 결과부터 말하자면 코딩테스트의 전체적 난이도는 중 정도 될 것 같다. 생애 처음으로 하는 코딩테스트였던 만큼 준비도 나름 열심히 했지만 잘 풀지 못했다. 시간에 쫓긴다는 압박도 있었고 실력적으로도 부족한 부분도 스스로 많이 느꼈다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h5 id=&quot;1번-문제&quot;&gt;1번 문제&lt;/h5&gt;
+&lt;p&gt;올려도 되는 지 안되는 지를 몰라서 일단은 올리지 않겠다. 문제는 대충 배열로 주어진 일정 크기의 상품과 상자를 주고 어떻게 하면 가장 많은 상품을 주어진 상자에 담을 수 있는가하는 문제였다. 일단 정답을 맞추기는 했지만 아니나 다를까 시간 초과. 반복문을 두번 돌린게 문제가 되지 않았나 싶다. 리스트 컴프리헨션을 이용해서 풀었으면 어땠을까 싶다.&lt;/p&gt;
+
+&lt;h5 id=&quot;2번-문제&quot;&gt;2번 문제&lt;/h5&gt;
+&lt;p&gt;체스의 비숍과 관련된 문제. 정해진 위치에 비숍들을 올려놓고 얼마나 많은 장기말들을 비숍이 한번만 움직였을 때 잡히지 않고 놓을 수 있는가라는 문제다. for 문과 while 문을 이용해서 문제를 해결하면 풀릴 것 같았지만 비숍들을 여러군데 놓았을 때의 상황에 맞게 함수를 만들지 못했다.&lt;/p&gt;
+
+&lt;h5 id=&quot;3번-문제&quot;&gt;3번 문제&lt;/h5&gt;
+&lt;p&gt;한 줄로 숫자들을 써놓고 숫자들을 안전하게 자르기 위해 해당 숫자의 앞의 숫자와 뒤의 숫자를 반을 자른다. 그 다음 반듯하게 잘린 숫자들의 최대합을 만들도록 하는 문제이다. 머릿속으로는 이해가 되는데 실제 코딩으로는 전혀 옮기지 못했던 문제다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;예상은 했지만 조금은 씁쓸한 결과를 받았다. 아직 많이 부족하다.&lt;/p&gt;</content><author><name></name></author><category term="random [이것저것]" /><summary type="html">구직 활동을 하던 중 프로그래머스 주관으로 하는 온라인 잡페어의 온라인 코딩테스트 후기를 쓰려고한다. 결과부터 말하자면 코딩테스트의 전체적 난이도는 중 정도 될 것 같다. 생애 처음으로 하는 코딩테스트였던 만큼 준비도 나름 열심히 했지만 잘 풀지 못했다. 시간에 쫓긴다는 압박도 있었고 실력적으로도 부족한 부분도 스스로 많이 느꼈다.</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 2</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 2" /><published>2019-09-22T00:00:00+09:00</published><updated>2019-09-22T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog%202</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">&lt;hr /&gt;
 &lt;p&gt;We are going to pick up what was left in the &lt;a href=&quot;https://reidhock.github.io/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/&quot;&gt;last post(How to choose the best jekyll theme for you blog - part 1)&lt;/a&gt;. As I said, it might be tough if it is your first time to use all the tools I introduced or I will. However, the key is go through the difficulties and play with new tools. I guarantee that you will get it eventually. Even I did it. haha Let jump in.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -296,23 +311,7 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 
 &lt;p&gt;최근 시간복잡도나 코드의 효율성에 영향을 끼치는 자료구조에 대해서 따로 인강도 들으면서 공부를 하는 중인데 기회가 되면 배운 것을 정리할 겸 해서 자료구조에 대해서 포스팅을 할 계획입니다.&lt;/p&gt;
 
-&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">서론 오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다. 매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다. 문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (1)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (1)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(1)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/">&lt;h2 id=&quot;팔린드롬-문제&quot;&gt;팔린드롬 문제&lt;/h2&gt;
-
-&lt;p&gt;“토마토”나 “기러기”처럼 거꾸로 읽어도 똑같은 단어를 팔린드롬(palindrome)이라고 부릅니다.
-문자열 ‘word’가 팔린드롬인지 확인하는 함수 is_palindrome를 쓰세요.&lt;br /&gt;
-함수 is_palindrome은 word가 팔린드롬이면 True를, 팔린드롬이 아니면 False를 리턴합니다.&lt;/p&gt;
-
-&lt;p&gt;다양한 해답이 있겠지만 저는 제가 아는 가장 단순한 방법으로 이 문제에 접근했습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;먼저 is_palindromed이라는 함수를 만들고 temp 변수를 만들어 여기에다가 받아온 word값을 끝에서부터([::-1]) 차례대로 집어넣었습니다.&lt;br /&gt;
-그 다음 word와 temp를 비교해 안의 내용이 같으면 True 그렇지 않으면 False를 return하도록 하였습니다.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">팔린드롬 문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (2)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (2)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(2)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/">&lt;p&gt;10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다.
+&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">서론 오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다. 매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다. 문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (2)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (2)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(2)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(2)/">&lt;p&gt;10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다.
 1000미만의 자연수에서 3,5의 배수의 총합을 구하라.&lt;/p&gt;
 
 &lt;p&gt;처음에는 별거 아닌 문제라고 생각해 간단하게 아래처럼 풀었습니다.&lt;/p&gt;
@@ -350,13 +349,20 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 
 &lt;p&gt;괄호의 위치를 주의 깊게 봐주세요. 이차원 리스트를 만드는 코드는 안에 괄호 한 쌍이 더 들어가 있습니다.&lt;/p&gt;
 
-&lt;p&gt;알면 쓰고 모르면 못쓰는 List Comprehension. 앞으로 연습을 더 해봐야 될 것 같네요.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다. 1000미만의 자연수에서 3,5의 배수의 총합을 구하라.</summary></entry><entry><title type="html">[오라클] ajax로 date를 받아올 때 날짜 format 변경</title><link href="http://localhost:4000/ajax%EB%A1%9C-date%EB%A5%BC-%EB%B0%9B%EC%95%84%EC%98%AC-%EB%95%8C-%EB%82%A0%EC%A7%9C-format-%EB%B3%80%EA%B2%BD/" rel="alternate" type="text/html" title="[오라클] ajax로 date를 받아올 때 날짜 format 변경" /><published>2019-08-23T00:00:00+09:00</published><updated>2019-08-23T00:00:00+09:00</updated><id>http://localhost:4000/ajax%EB%A1%9C%20date%EB%A5%BC%20%EB%B0%9B%EC%95%84%EC%98%AC%20%EB%95%8C%20%EB%82%A0%EC%A7%9C%20format%20%EB%B3%80%EA%B2%BD</id><content type="html" xml:base="http://localhost:4000/ajax%EB%A1%9C-date%EB%A5%BC-%EB%B0%9B%EC%95%84%EC%98%AC-%EB%95%8C-%EB%82%A0%EC%A7%9C-format-%EB%B3%80%EA%B2%BD/">&lt;p&gt;제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.&lt;/p&gt;
+&lt;p&gt;알면 쓰고 모르면 못쓰는 List Comprehension. 앞으로 연습을 더 해봐야 될 것 같네요.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">10미만의 자연수에서 3과 5의 배수를 구하면 3,5,6,9이다. 이들의 총합은 23이다. 1000미만의 자연수에서 3,5의 배수의 총합을 구하라.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (1)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (1)" /><published>2019-08-26T00:00:00+09:00</published><updated>2019-08-26T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(1)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(1)/">&lt;h2 id=&quot;팔린드롬-문제&quot;&gt;팔린드롬 문제&lt;/h2&gt;
 
-&lt;p&gt;ajax 통신으로 오라클에서 date를 받아오면 날짜 형식이 millisecond로 나오는 경우가 있습니다.&lt;/p&gt;
+&lt;p&gt;“토마토”나 “기러기”처럼 거꾸로 읽어도 똑같은 단어를 팔린드롬(palindrome)이라고 부릅니다.
+문자열 ‘word’가 팔린드롬인지 확인하는 함수 is_palindrome를 쓰세요.&lt;br /&gt;
+함수 is_palindrome은 word가 팔린드롬이면 True를, 팔린드롬이 아니면 False를 리턴합니다.&lt;/p&gt;
 
-&lt;p&gt;이를 해결하기 위해서는 자바스크립트에서 날짜 format을 바꿔주는 방식 또는 DB상에서 바꿔주는 방식이 있는데 저는 아래의 &lt;strong&gt;DB에서 formatting을 하는 코드&lt;/strong&gt;로 대체해서 이 문제를 해결했습니다.&lt;/p&gt;
+&lt;p&gt;다양한 해답이 있겠지만 저는 제가 아는 가장 단순한 방법으로 이 문제에 접근했습니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-TO_CHAR(DATE_COLUMN_NAME, 'YYYY/MM/DD HH24:MI:SS') AS 별칭
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_palindrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ajax" /><category term="oracle [오라클]" /><summary type="html">제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.</summary></entry></feed>
+&lt;p&gt;먼저 is_palindromed이라는 함수를 만들고 temp 변수를 만들어 여기에다가 받아온 word값을 끝에서부터([::-1]) 차례대로 집어넣었습니다.&lt;br /&gt;
+그 다음 word와 temp를 비교해 안의 내용이 같으면 True 그렇지 않으면 False를 return하도록 하였습니다.&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">팔린드롬 문제</summary></entry></feed>
