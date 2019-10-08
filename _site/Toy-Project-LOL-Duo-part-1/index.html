@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>2019-09-23-[토이프로젝트]LOL Duo - part 1 – Lee + Developer – blog by WoongHee Lee</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <meta property="og:image" content="/images/logo.jpg">
+    <meta name="keywords" content="programming, blog, java, python, jekyll, oracle, 자바, 파이썬, 지킬, 프로그래밍, 개발자, 블로그">
+
+    
+    <meta name="description" content="기본 구조 및 web.xml 설정 파헤치기" />
+    <meta property="og:description" content="기본 구조 및 web.xml 설정 파헤치기" />
+    
+    <meta name="author" content="Lee + Developer" />
+
+    
+    <meta property="og:title" content="2019-09-23-[토이프로젝트]LOL Duo - part 1" />
+    <meta property="twitter:title" content="2019-09-23-[토이프로젝트]LOL Duo - part 1" />
+    
+
+  <!-- Async font loading -->
+<script>
+  window.WebFontConfig = {
+      custom: {
+          families: ['Spoqa Han Sans:100,300,400,700'],
+          urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
+      },
+      timeout: 60000
+  };
+  (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+      s.parentNode.insertBefore(wf, s);
+  })(document);
+</script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Lee + Developer - blog by WoongHee Lee" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+  <body>
+    <div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      
+        <a href="/" class="site-avatar"><img src="/images/logo.jpg" /></a>
+      
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Lee + Developer</a></h1>
+        <p class="site-description">blog by WoongHee Lee</p>
+      </div>
+
+      <nav>
+        
+        
+        <a href="/">Posts</a>
+        
+        
+        
+        <a href="/about">About</a>
+        
+        
+        
+        <a href="/archive">Archive</a>
+        
+        
+        
+        <a href="/tags">Tags</a>
+        
+        
+      </nav>
+    </header>
+  </div>
+</div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>2019-09-23-[토이프로젝트]LOL Duo - part 1</h1>
+  <h2>기본 구조 및 web.xml 설정 파헤치기</h2>
+  <div clsss="meta">
+    <span class="date">
+      2019-09-23
+    </span>
+
+    <ul class="tag">
+      
+      <li>
+        <a href="http://localhost:4000/tags#Spring Framework [스프링]">
+          Spring Framework [스프링]
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="entry">
+    <hr />
+<p>처음 프로젝트를 진행했을 때 나온 아이디어 중 하나를 가지고 두번째 프로젝트를 시작하려고 한다. 그동안 <a href="https://addio3305.tistory.com/">흔한개발자</a>의 블로그를 보고 프로젝트를 진행했는데 몇몇 스프링 설정이나 다른 소소한 부분들을 디테일하게 이해하지 못한 부분이 있었다. 그래서 이번 기회에 두번째 프로젝트를 진행하면서 스프링 설정들의 개념이나 그 밖의 요소들을 복습할 겸 포스트할 계획이다.</p>
+
+<hr />
+
+<p>먼저 개발환경이다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server: Tomcat 7.0
+Tool: STS 3.99, GIT, SQL Developer
+DB: Oracle 10g
+Language: Java(jdk 1.8), JSP, HTML, Javascript, jQuery, ajax
+Framework: Spring Framework
+</code></pre></div></div>
+
+<p>이미 프로젝트가 진행이 된 상태이기 때문에 조금 조잡해보일지도 모르겠지만 하나하나 정리해나가면서 설명해나가려고 한다.</p>
+
+<p>먼저 전체적인 구조이다.
+<img src="/images/20191008-1.png" alt="_config.yml" width="50%" /></p>
+
+<p>Controller, Service, DAO class 들을 기능 별로 묶었고 root context와 servlet context를 볼 수 있다. 두 context config에 대해서는 차차 다루기로 하고 먼저 web.xml을 들여다 보자. 먼저 전체 코드이다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">"2.5"</span> <span class="na">xmlns=</span><span class="s">"http://java.sun.com/xml/ns/javaee"</span>         
+	<span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="na">xsi:schemaLocation=</span><span class="s">"http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span><span class="nt">&gt;</span>
+
+	<span class="nt">&lt;welcome-file-list&gt;</span>
+		<span class="nt">&lt;welcome-file&gt;</span>/WEB-INF/jsp/member/main/main.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+	<span class="nt">&lt;/welcome-file-list&gt;</span>
+
+  <span class="nt">&lt;filter&gt;</span>
+		<span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+    	<span class="nt">&lt;filter-class&gt;</span>
+			  org.springframework.web.filter.CharacterEncodingFilter
+      <span class="nt">&lt;/filter-class&gt;</span>
+    <span class="nt">&lt;init-param&gt;</span>
+    	<span class="nt">&lt;param-name&gt;</span>encoding<span class="nt">&lt;/param-name&gt;</span>
+      <span class="nt">&lt;param-value&gt;</span>utf-8<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+  <span class="nt">&lt;/filter&gt;</span>
+	<span class="nt">&lt;filter-mapping&gt;</span>
+	  <span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+  <span class="nt">&lt;/filter-mapping&gt;</span>
+
+  	<span class="nt">&lt;listener&gt;</span>
+    	<span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+  	<span class="nt">&lt;/listener&gt;</span>
+
+  <span class="nt">&lt;servlet&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;servlet-class&gt;</span>
+			org.springframework.web.servlet.DispatcherServlet
+		<span class="nt">&lt;/servlet-class&gt;</span>
+		<span class="nt">&lt;init-param&gt;</span>
+			<span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+			<span class="nt">&lt;param-value&gt;</span>
+				/WEB-INF/config/*-servlet.xml
+			<span class="nt">&lt;/param-value&gt;</span>
+		<span class="nt">&lt;/init-param&gt;</span>
+		<span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+	<span class="nt">&lt;/servlet&gt;</span>
+	<span class="nt">&lt;servlet-mapping&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+	<span class="nt">&lt;/servlet-mapping&gt;</span>
+
+  <span class="nt">&lt;context-param&gt;</span>
+    <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+    <span class="nt">&lt;param-value&gt;</span>classpath*:config/spring/context-*.xml<span class="nt">&lt;/param-value&gt;</span>
+  <span class="nt">&lt;/context-param&gt;</span>
+</code></pre></div></div>
+
+<p>최대한 자세히 설명하고자 하니 첫번째 줄 부터 보자.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">"2.5"</span> <span class="na">xmlns=</span><span class="s">"http://java.sun.com/xml/ns/javaee"</span>         
+	<span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="na">xsi:schemaLocation=</span><span class="s">"http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>이는 서블렛 버전에 따라 다르다. 현재 필자가 쓰고 있는 서블렛 버전은 2.5 이고 아는 바로는 4.0까지 있는 걸로 알고 있다. 따라서 원하는 설정에 따라 위의 헤더를 바꾸어주면 될 것 같다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;welcome-file-list&gt;
+  &lt;welcome-file&gt;/WEB-INF/jsp/member/main/main.jsp&lt;/welcome-file&gt;
+&lt;/welcome-file-list&gt;
+</code></pre></div></div>
+
+<p>사실 있어도 되고 없어도 되는 코드이다. 맨 처음 프로젝트를 실행했을 때 나오는 jsp 파일을 지정해 준 것인데 이는 컨트롤러로 처리가 가능하기 때문에 없어도 무방하다. 필자는 그냥 만들어놨다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;filter&gt;
+  &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+  &lt;filter-class&gt;
+		org.springframework.web.filter.CharacterEncodingFilter
+  &lt;/filter-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;encoding&lt;/param-name&gt;
+    &lt;param-value&gt;utf-8&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/filter&gt;
+	&lt;filter-mapping&gt;
+		&lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+</code></pre></div></div>
+
+<p>이 부분은 중요하다.
+필터를 설정하는 것인데 스프링은 인코딩 처리를 위해 CharacterEncodingFilter를 제공한다.
+(org.springframework.~~~이걸 보면 아 ~ 스프링은 이걸 제공해주는구나~라고 생각해라) 대한민국은 한글을 쓰고 있기 때문에 utf-8 인코딩이 반드시 필요하다. 모든 페이지에 인코딩을 적용하고 싶기 때문에 <code class="highlighter-rouge">&lt;url-pattern&gt;</code>에 <code class="highlighter-rouge">/*</code>을 넣는다. <code class="highlighter-rouge">*</code>의 뜻은 뒤에 무엇이 오든 모든 것을 포함한다라는 뜻이다. 이렇게 되면 /뒤에 오는 어떤 url 오든지 간에 다 인코딩이 적용된다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;listener&gt;
+  &lt;listener-class&gt;
+    org.springframework.web.context.ContextLoaderListener
+  &lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;servlet&gt;
+	&lt;servlet-name&gt;action&lt;/servlet-name&gt;
+	&lt;servlet-class&gt;
+		org.springframework.web.servlet.DispatcherServlet
+	&lt;/servlet-class&gt;
+	&lt;init-param&gt;
+		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+		&lt;param-value&gt;
+			/WEB-INF/config/*-servlet.xml
+		&lt;/param-value&gt;
+	&lt;/init-param&gt;
+	&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+	&lt;servlet-name&gt;action&lt;/servlet-name&gt;
+	&lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+
+&lt;context-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath*:config/spring/context-*.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre></div></div>
+
+<p>먼저 ContextLoaderListener의 역할에 대해 알아보자. 만약 계층별로 나눈 xml설정 파일이 있다고 하면 web.xml에서 모두 load 되도록 등록할때 사용한다. contextConfigLocation 파라미터를 쓰면 ContextLoader가 load할 수 있는 설정파일을 여러개 쓸 수 있다.</p>
+
+<p>조금 더 깊이 들어가보자. 예를 들어 다음과 같은 설정 코드가 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;servlet&gt;
+  &lt;servlet-name&gt;aController&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;
+    org.springframework.web.servlet.DispatcherServlet
+  &lt;/servlet-class&gt;
+  &lt;init-param&gt;
+	  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+	  &lt;param-value&gt;/WEB-INF/a-servlet.xml&lt;/param-value&gt;
+  &lt;/init-param&gt;
+  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+&lt;servlet&gt;
+  &lt;servlet-name&gt;bController&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;
+    org.springframework.web.servlet.DispatcherServlet
+  &lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;/WEB-INF/b-servlet.xml&lt;/param-value&gt;
+  &lt;/init-param&gt;
+  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</code></pre></div></div>
+
+<p>위의 경우는 DispatcherServlet은 각각 별도의 webapplicationcontext를 사용한다. 따라서 두 context는 독립적이므로 각각의 설정 파일에서 생성한 빈을 공유할 수 없다.</p>
+
+<p>만약 각각 생성한 빈을 공유하고 싶다면 <code class="highlighter-rouge">ContextLoaderListener</code>를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 root context가 되고 DispatcherServlet이 생성한 인스턴스는 root Context를 부모로 하는 자식 context가 된다. 자식 context들은 root context의 설정 빈을 사용할 수 있다.</p>
+
+<p>따라서 현 프로젝트의 root context는 <code class="highlighter-rouge">classpath*:config/spring/context-*.xml</code> 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet은 <code class="highlighter-rouge">/WEB-INF/config/*-servlet.xml</code> 여기에 해당하는 모든 xml들이 되겠다. rootContext와 자식context들의 차이는 다음 포스트에서 자세히 알아보기로 하자.</p>
+
+<hr />
+<p>이 포스트에서는 web.xml에 대해서 알아보았다. 생각보다 더 오래걸려서 놀랐지만 끝까지 해보도록 하겠다. 포스팅하고 싶은게 너무 많아서 고민을 많이했는데 프로젝트에 대한 포스팅은 잘한 결정인 것 같다.</p>
+
+<hr />
+
+<p>참고: <a href="https://addio3305.tistory.com/">흔한개발자</a>, <a href="https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C">Amor Fati</a>, <a href="https://unabated.tistory.com/entry/%EC%8A%A4%ED%94%84%EB%A7%81-ContextLoaderListener-%EC%9D%98-%EC%97%AD%ED%95%A0">랄라라</a></p>
+
+  </div>
+
+  <div class="pagination">
+    
+      <span class="prev" >
+          <a href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog-2/">
+            &#xE000; [Jekyll] How to install the best Jekyll theme for your blog - part 2
+          </a>
+      </span>
+    
+    
+      <span class="next" >
+          <a href="http://localhost:4000/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8/">
+            [자료구조]양방향 연결 리스트 &#xE001;
+          </a>
+      </span>
+    
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'reidhock';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+
+  
+
+  
+  <li><a href="mailto:goforlee@gmail.com" class="icon-8 email" title="Email"><svg viewBox="0 0 512 512"><path d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z"/></svg><!--[if lt IE 9]><em>Email</em><![endif]--></a></li>
+  
+
+  
+
+  
+
+  
+  <li><a href="https://github.com/github.com/reidhock" class="icon-13 github" title="GitHub"><svg viewBox="0 0 512 512"><path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/></svg><!--[if lt IE 9]><em>GitHub</em><![endif]--></a></li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+
+<p>© 2019 WoongHee Lee</p>
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-106768275-3', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/Toy-Project-LOL-Duo-part-1/',
+		  'title': '2019-09-23-[토이프로젝트]LOL Duo - part 1'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
