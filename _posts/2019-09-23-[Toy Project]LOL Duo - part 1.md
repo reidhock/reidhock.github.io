@@ -187,7 +187,7 @@ Controller, Service, DAO class 들을 기능 별로 묶었고 root context와 se
 
 만약 각각 생성한 빈을 공유하고 싶다면 `ContextLoaderListener`를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 root context가 되고 DispatcherServlet이 생성한 인스턴스는 root Context를 부모로 하는 자식 context가 된다. 자식 context들은 root context의 설정 빈을 사용할 수 있다.
 
-따라서 현 프로젝트의 root context는 `classpath*:config/spring/context-*.xml` 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet은 `/WEB-INF/config/*-servlet.xml` 여기에 해당하는 모든 xml들이 되겠다. rootContext와 자식context들의 차이는 다음 포스트에서 자세히 알아보기로 하자.
+따라서 현 프로젝트의 root context는 `classpath*:config/spring/context-*.xml` 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet이 만든 root context의 자식 context는 `/WEB-INF/config/*-servlet.xml` 여기에 해당하는 모든 xml들이 되겠다. rootContext와 자식context들의 차이는 다음 포스트에서 자세히 알아보기로 하자.
 
 ***
 이 포스트에서는 web.xml에 대해서 알아보았다. 생각보다 더 오래걸려서 놀랐지만 끝까지 해보도록 하겠다. 포스팅하고 싶은게 너무 많아서 고민을 많이했는데 프로젝트에 대한 포스팅은 잘한 결정인 것 같다.
