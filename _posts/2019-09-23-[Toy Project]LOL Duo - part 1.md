@@ -153,7 +153,7 @@ Controller, Service, DAO class 들을 기능 별로 묶었고 root context와 se
 </context-param>
 ```
 
-먼저 ContextLoaderListener의 역할에 대해 알아보자. 만약 계층별로 나눈 xml설정 파일이 있다고 하면 web.xml에서 모두 load 되도록 등록할때 사용한다. contextConfigLocation 파라미터를 쓰면 ContextLoader가 load할 수 있는 설정파일을 여러개 쓸 수 있다.
+먼저 ContextLoaderListener의 역할에 대해 알아보자. DispatcherServlet에 의해 생성된 Beans은 ContextLoaderLisener에 의해 생성된 Bean을 참조할 수 있다. 또 Controller가 공유하는 Bean들(DAO, DataSource, Service)을 포함하는 Spring Container를 생성한다.
 
 조금 더 깊이 들어가보자. 예를 들어 다음과 같은 설정 코드가 있다.
 
@@ -183,11 +183,15 @@ Controller, Service, DAO class 들을 기능 별로 묶었고 root context와 se
 </servlet>
 ```
 
-위의 경우는 DispatcherServlet은 각각 별도의 webapplicationcontext를 사용한다. 따라서 두 context는 독립적이므로 각각의 설정 파일에서 생성한 빈을 공유할 수 없다.
+위의 경우는 DispatcherServlet은 각각 별도의 `WebApplicationContext`를 사용한다. 따라서 두 context는 독립적이므로 각각의 설정 파일에서 생성한 빈을 공유할 수 없다.
 
-만약 각각 생성한 빈을 공유하고 싶다면 `ContextLoaderListener`를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 root context가 되고 DispatcherServlet이 생성한 인스턴스는 root Context를 부모로 하는 자식 context가 된다. 자식 context들은 root context의 설정 빈을 사용할 수 있다.
+만약 각각 생성한 빈을 공유하고 싶다면 앞서 언급했듯이 `ContextLoaderListener`를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 `root WebApplicationContext`가 되고 DispatcherServlet이 생성한 인스턴스는 `Servlet WebApplicationContext`가 된다. Servlet WebApplicationContext들은 root WebApplicationContext의 설정 빈을 사용할 수 있다.
 
-따라서 현 프로젝트의 root context는 `classpath*:config/spring/context-*.xml` 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet이 만든 root context의 자식 context는 `/WEB-INF/config/*-servlet.xml` 여기에 해당하는 모든 xml들이 되겠다. rootContext와 자식context들의 차이는 다음 포스트에서 자세히 알아보기로 하자.
+그림으로 보면 다음과 같다.
+![_config.yml]({{ site.baseurl }}/images/20191008-2.png)
+출처:[Heee's Development Blog](https://gmlwjd9405.github.io/)
+
+따라서 현 프로젝트의 Servlet WebApplicationContext는 `/WEB-INF/config/*-servlet.xml` 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet이 만든 Root WebApplicationContext는 `classpath*:config/spring/context-*.xml` 여기에 해당하는 모든 xml들이 되겠다. 이들에 관해서는 보다 자세히 다음 포스트에서 설명하도록 하겠다.
 
 ***
 이 포스트에서는 web.xml에 대해서 알아보았다. 생각보다 더 오래걸려서 놀랐지만 끝까지 해보도록 하겠다. 포스팅하고 싶은게 너무 많아서 고민을 많이했는데 프로젝트에 대한 포스팅은 잘한 결정인 것 같다.

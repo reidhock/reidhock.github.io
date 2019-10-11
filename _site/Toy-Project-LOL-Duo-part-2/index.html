@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>2019-10-11-[토이프로젝트]LOL Duo - part 2 – Lee + Developer – blog by WoongHee Lee</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <meta property="og:image" content="/images/logo.jpg">
+    <meta name="keywords" content="programming, blog, java, python, jekyll, oracle, 자바, 파이썬, 지킬, 프로그래밍, 개발자, 블로그">
+
+    
+    <meta name="description" content="기본 구조 및 web.xml 설정 파헤치기" />
+    <meta property="og:description" content="기본 구조 및 web.xml 설정 파헤치기" />
+    
+    <meta name="author" content="Lee + Developer" />
+
+    
+    <meta property="og:title" content="2019-10-11-[토이프로젝트]LOL Duo - part 2" />
+    <meta property="twitter:title" content="2019-10-11-[토이프로젝트]LOL Duo - part 2" />
+    
+
+  <!-- Async font loading -->
+<script>
+  window.WebFontConfig = {
+      custom: {
+          families: ['Spoqa Han Sans:100,300,400,700'],
+          urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
+      },
+      timeout: 60000
+  };
+  (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+      s.parentNode.insertBefore(wf, s);
+  })(document);
+</script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Lee + Developer - blog by WoongHee Lee" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+  <body>
+    <div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      
+        <a href="/" class="site-avatar"><img src="/images/logo.jpg" /></a>
+      
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Lee + Developer</a></h1>
+        <p class="site-description">blog by WoongHee Lee</p>
+      </div>
+
+      <nav>
+        
+        
+        <a href="/">Posts</a>
+        
+        
+        
+        <a href="/about">About</a>
+        
+        
+        
+        <a href="/archive">Archive</a>
+        
+        
+        
+        <a href="/tags">Tags</a>
+        
+        
+      </nav>
+    </header>
+  </div>
+</div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>2019-10-11-[토이프로젝트]LOL Duo - part 2</h1>
+  <h2>기본 구조 및 web.xml 설정 파헤치기</h2>
+  <div clsss="meta">
+    <span class="date">
+      2019-10-11
+    </span>
+
+    <ul class="tag">
+      
+      <li>
+        <a href="http://localhost:4000/tags#Spring Framework [스프링]">
+          Spring Framework [스프링]
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="entry">
+    <hr />
+<p>저번 포스트를 보니 Dispatcher Servlet에 대한 설명이 부족한 것 같아 그 부분을 조금 더 다루고 root context와 자식 context의 역할에 대해 알아보고자 한다. 이번 포스트를 하면서 깨달은 점은 내가 쓰고 있던 설정들과 코드들을 100% 완벽히 이해하지 못했다는 점이다. 아직 갈길이 멀다.</p>
+
+<hr />
+
+<p>먼저 <code class="highlighter-rouge">web.xml</code>을 다시 적어보겠다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">"2.5"</span> <span class="na">xmlns=</span><span class="s">"http://java.sun.com/xml/ns/javaee"</span>         
+	<span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="na">xsi:schemaLocation=</span><span class="s">"http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span><span class="nt">&gt;</span>
+
+	<span class="nt">&lt;welcome-file-list&gt;</span>
+		<span class="nt">&lt;welcome-file&gt;</span>/WEB-INF/jsp/member/main/main.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+	<span class="nt">&lt;/welcome-file-list&gt;</span>
+
+  <span class="nt">&lt;filter&gt;</span>
+		<span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+    	<span class="nt">&lt;filter-class&gt;</span>
+			  org.springframework.web.filter.CharacterEncodingFilter
+      <span class="nt">&lt;/filter-class&gt;</span>
+    <span class="nt">&lt;init-param&gt;</span>
+    	<span class="nt">&lt;param-name&gt;</span>encoding<span class="nt">&lt;/param-name&gt;</span>
+      <span class="nt">&lt;param-value&gt;</span>utf-8<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+  <span class="nt">&lt;/filter&gt;</span>
+	<span class="nt">&lt;filter-mapping&gt;</span>
+	  <span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+  <span class="nt">&lt;/filter-mapping&gt;</span>
+
+  	<span class="nt">&lt;listener&gt;</span>
+    	<span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+  	<span class="nt">&lt;/listener&gt;</span>
+
+    <span class="nt">&lt;context-param&gt;</span>
+      <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+      <span class="nt">&lt;param-value&gt;</span>classpath*:config/spring/context-*.xml<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/context-param&gt;</span>
+
+  <span class="nt">&lt;servlet&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;servlet-class&gt;</span>
+			org.springframework.web.servlet.DispatcherServlet
+		<span class="nt">&lt;/servlet-class&gt;</span>
+		<span class="nt">&lt;init-param&gt;</span>
+			<span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+			<span class="nt">&lt;param-value&gt;</span>
+				/WEB-INF/config/*-servlet.xml
+			<span class="nt">&lt;/param-value&gt;</span>
+		<span class="nt">&lt;/init-param&gt;</span>
+		<span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+	<span class="nt">&lt;/servlet&gt;</span>
+	<span class="nt">&lt;servlet-mapping&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+	<span class="nt">&lt;/servlet-mapping&gt;</span>
+
+
+</code></pre></div></div>
+
+<h2 id="dispatcher-servlet">Dispatcher-Servlet</h2>
+
+<p>먼저 Dispatcher Servlet이 무엇인지 알아보자. Spring MVC은 다른 웹 프레임워크 처럼 front controller pattern을 사용한다. 클라이언트(브라우저)로부터 어떠한 요청이 오면 Tomcat과 같은 Servlet Container가 요청을 받는데 이때 제일 앞에서 요청을 처리하는 프론트 컨트롤러를 spring에서 정의하여 이를 Dispatcher Servlet이라고 한다.</p>
+
+<p>Dispatcher Servlet은 request를 처리하면서 공유되는 알고리즘을 제공하고 실제 처리 과정은 지정된 components에서 발생한다. Dispatcher Servlet은 Java Configuration이나 web.xml에서 선언이 되고 mapping이 된다. 그 후 Request Mapping, view resolution, exception handling 등을 처리한다.</p>
+
+<p><img src="/images/20191011-2.png" alt="_config.yml" width="70%" /></p>
+
+<p>지금 당장은 와닿는 그림은 아니지만 일단 보면서 확인할 수 있는 부분은 Dispatcher Servlet이 중추역할을 하면서 처리와 응답을 관리한다. 이 그림은 한번 더 사용하면서 추후 설명하겠다.</p>
+
+<h2 id="context-hierarchy">Context Hierarchy</h2>
+
+<p>이 전 포스트에서 언급한것 처럼 Context, 쉽게 말해 설정 파일에도 계층 구조가 있다. 이렇게 계층 구조를 가지는 설정파일을 만드는 이유는 각각 생성한 빈들을 공유할 수 있게 하기 위해서이다. 계층구조에는 바로 root WebApplicationContext와 servlet WebApplicationContext가 계층 구조로 이루어져 있다. 쉽게 구분하자면 ContextLoaderListener가 지정하는 파일은 Servlet WebApplicationContext이고 DispatcherServlet이 지정하는 파일은 root WebApplicationContext이 된다.</p>
+
+<p>이들은 부모와 자식 관계를 가지고 있는데 Root WebApplicationContext는 모든 Servlet WebApplicationContext에서 사용이 가능하다. 말 그대로 root는 뿌리가 되는 느낌이랄까?</p>
+
+<p>그림으로 보면 이러하다.</p>
+
+<p><img src="/images/20191011-3.png" alt="_config.yml" width="70%" /></p>
+
+<p>단순 설정 빈을 공유하기 위한 이유 말고도 그 목적에도 차이가 난다.
+ServletContext의 경우 Entry Point로써 클라이언트의 요청을 처리해 줄 controller의 mapping 설정과 요청 처리 후 view 처리를 어떻게 할 것인가에 대한 설정등을 포함한다.
+RootContext의 경우 web application의 실제 비즈니스 혹은 목적을 위한 service layer와 해당 service layer에서 조회 및 처리에 필요한 database와 연결되는 bean들에 대한 설정을 포함한다.</p>
+
+<p>따라서 context component scan을 통한 controller, service, repository의 bean 등록 설정을 할 때 주의를 기울여야 한다. 물론 다 한번에 스캔해버려도 상관은 없지만 불필요한 bean 등록이 발생하게 되어 낭비가 발생한다. 따라서 bean 등록 시 include 와 exclude를 적절히 사용하여 불필요한 중복 bean 등록을 피하는 것이 좋다.</p>
+
+<hr />
+<p>최대한 정리를 해보려고 썼지만 글이 영 엉성한 느낌이다. 앞으로 계속해서 수정해나가야 할 것 같다. 다음 포스트가 언제가 될지는 모르겠지만 아직 설정단계가 끝나지 않았다. 스프링은 설정이 반이라더니 그 말이 맞다. 혹시 틀리거나 부족한 부분은 댓글로 남겨주시면 바로바로 수정해나가려고 노력하겠다. 
+참고: <a href="https://addio3305.tistory.com/">흔한개발자</a>, <a href="https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C">Spring by Pivotal</a></p>
+
+  </div>
+
+  <div class="pagination">
+    
+      <span class="prev" >
+          <a href="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/">
+            &#xE000; [이것저것] 프로그래머스 코딩테스트 후기
+          </a>
+      </span>
+    
+    
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'reidhock';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+
+  
+
+  
+  <li><a href="mailto:goforlee@gmail.com" class="icon-8 email" title="Email"><svg viewBox="0 0 512 512"><path d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z"/></svg><!--[if lt IE 9]><em>Email</em><![endif]--></a></li>
+  
+
+  
+
+  
+
+  
+  <li><a href="https://github.com/github.com/reidhock" class="icon-13 github" title="GitHub"><svg viewBox="0 0 512 512"><path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"/></svg><!--[if lt IE 9]><em>GitHub</em><![endif]--></a></li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+
+<p>© 2019 WoongHee Lee</p>
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-106768275-3', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/Toy-Project-LOL-Duo-part-2/',
+		  'title': '2019-10-11-[토이프로젝트]LOL Duo - part 2'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

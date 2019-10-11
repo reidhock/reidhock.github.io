@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-08T21:47:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[이것저것] 프로그래머스 코딩테스트 후기</title><link href="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" rel="alternate" type="text/html" title="[이것저것] 프로그래머스 코딩테스트 후기" /><published>2019-09-28T00:00:00+09:00</published><updated>2019-09-28T00:00:00+09:00</updated><id>http://localhost:4000/%5B%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83%5D%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%9B%84%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-11T17:29:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">2019-10-11-[토이프로젝트]LOL Duo - part 2</title><link href="http://localhost:4000/Toy-Project-LOL-Duo-part-2/" rel="alternate" type="text/html" title="2019-10-11-[토이프로젝트]LOL Duo - part 2" /><published>2019-10-11T00:00:00+09:00</published><updated>2019-10-11T00:00:00+09:00</updated><id>http://localhost:4000/%5BToy%20Project%5DLOL%20Duo%20-%20part%202</id><content type="html" xml:base="http://localhost:4000/Toy-Project-LOL-Duo-part-2/">&lt;hr /&gt;
+&lt;p&gt;저번 포스트를 보니 Dispatcher Servlet에 대한 설명이 부족한 것 같아 그 부분을 조금 더 다루고 root context와 자식 context의 역할에 대해 알아보고자 한다. 이번 포스트를 하면서 깨달은 점은 내가 쓰고 있던 설정들과 코드들을 100% 완벽히 이해하지 못했다는 점이다. 아직 갈길이 멀다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;먼저 &lt;code class=&quot;highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;을 다시 적어보겠다.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;web-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2.5&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://java.sun.com/xml/ns/javaee&quot;&lt;/span&gt;         
+	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file-list&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file&amp;gt;&lt;/span&gt;/WEB-INF/jsp/member/main/main.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file-list&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;encodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+    	&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-class&amp;gt;&lt;/span&gt;
+			  org.springframework.web.filter.CharacterEncodingFilter
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-class&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+    	&lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;encoding&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;utf-8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;encodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt;
+
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;
+    	&lt;span class=&quot;nt&quot;&gt;&amp;lt;listener-class&amp;gt;&lt;/span&gt;org.springframework.web.context.ContextLoaderListener&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener-class&amp;gt;&lt;/span&gt;
+  	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;contextConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;classpath*:config/spring/context-*.xml&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;action&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-class&amp;gt;&lt;/span&gt;
+			org.springframework.web.servlet.DispatcherServlet
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-class&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;contextConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;
+				/WEB-INF/config/*-servlet.xml
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;load-on-startup&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/load-on-startup&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;action&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;dispatcher-servlet&quot;&gt;Dispatcher-Servlet&lt;/h2&gt;
+
+&lt;p&gt;먼저 Dispatcher Servlet이 무엇인지 알아보자. Spring MVC은 다른 웹 프레임워크 처럼 front controller pattern을 사용한다. 클라이언트(브라우저)로부터 어떠한 요청이 오면 Tomcat과 같은 Servlet Container가 요청을 받는데 이때 제일 앞에서 요청을 처리하는 프론트 컨트롤러를 spring에서 정의하여 이를 Dispatcher Servlet이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;Dispatcher Servlet은 request를 처리하면서 공유되는 알고리즘을 제공하고 실제 처리 과정은 지정된 components에서 발생한다. Dispatcher Servlet은 Java Configuration이나 web.xml에서 선언이 되고 mapping이 된다. 그 후 Request Mapping, view resolution, exception handling 등을 처리한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20191011-2.png&quot; alt=&quot;_config.yml&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;지금 당장은 와닿는 그림은 아니지만 일단 보면서 확인할 수 있는 부분은 Dispatcher Servlet이 중추역할을 하면서 처리와 응답을 관리한다. 이 그림은 한번 더 사용하면서 추후 설명하겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;context-hierarchy&quot;&gt;Context Hierarchy&lt;/h2&gt;
+
+&lt;p&gt;이 전 포스트에서 언급한것 처럼 Context, 쉽게 말해 설정 파일에도 계층 구조가 있다. 이렇게 계층 구조를 가지는 설정파일을 만드는 이유는 각각 생성한 빈들을 공유할 수 있게 하기 위해서이다. 계층구조에는 바로 root WebApplicationContext와 servlet WebApplicationContext가 계층 구조로 이루어져 있다. 쉽게 구분하자면 ContextLoaderListener가 지정하는 파일은 Servlet WebApplicationContext이고 DispatcherServlet이 지정하는 파일은 root WebApplicationContext이 된다.&lt;/p&gt;
+
+&lt;p&gt;이들은 부모와 자식 관계를 가지고 있는데 Root WebApplicationContext는 모든 Servlet WebApplicationContext에서 사용이 가능하다. 말 그대로 root는 뿌리가 되는 느낌이랄까?&lt;/p&gt;
+
+&lt;p&gt;그림으로 보면 이러하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20191011-3.png&quot; alt=&quot;_config.yml&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;단순 설정 빈을 공유하기 위한 이유 말고도 그 목적에도 차이가 난다.
+ServletContext의 경우 Entry Point로써 클라이언트의 요청을 처리해 줄 controller의 mapping 설정과 요청 처리 후 view 처리를 어떻게 할 것인가에 대한 설정등을 포함한다.
+RootContext의 경우 web application의 실제 비즈니스 혹은 목적을 위한 service layer와 해당 service layer에서 조회 및 처리에 필요한 database와 연결되는 bean들에 대한 설정을 포함한다.&lt;/p&gt;
+
+&lt;p&gt;따라서 context component scan을 통한 controller, service, repository의 bean 등록 설정을 할 때 주의를 기울여야 한다. 물론 다 한번에 스캔해버려도 상관은 없지만 불필요한 bean 등록이 발생하게 되어 낭비가 발생한다. 따라서 bean 등록 시 include 와 exclude를 적절히 사용하여 불필요한 중복 bean 등록을 피하는 것이 좋다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;최대한 정리를 해보려고 썼지만 글이 영 엉성한 느낌이다. 앞으로 계속해서 수정해나가야 할 것 같다. 다음 포스트가 언제가 될지는 모르겠지만 아직 설정단계가 끝나지 않았다. 스프링은 설정이 반이라더니 그 말이 맞다. 혹시 틀리거나 부족한 부분은 댓글로 남겨주시면 바로바로 수정해나가려고 노력하겠다. 
+참고: &lt;a href=&quot;https://addio3305.tistory.com/&quot;&gt;흔한개발자&lt;/a&gt;, &lt;a href=&quot;https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C&quot;&gt;Spring by Pivotal&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Spring Framework [스프링]" /><summary type="html">저번 포스트를 보니 Dispatcher Servlet에 대한 설명이 부족한 것 같아 그 부분을 조금 더 다루고 root context와 자식 context의 역할에 대해 알아보고자 한다. 이번 포스트를 하면서 깨달은 점은 내가 쓰고 있던 설정들과 코드들을 100% 완벽히 이해하지 못했다는 점이다. 아직 갈길이 멀다.</summary></entry><entry><title type="html">[이것저것] 프로그래머스 코딩테스트 후기</title><link href="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/" rel="alternate" type="text/html" title="[이것저것] 프로그래머스 코딩테스트 후기" /><published>2019-09-28T00:00:00+09:00</published><updated>2019-09-28T00:00:00+09:00</updated><id>http://localhost:4000/%5B%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83%5D%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%9B%84%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%9B%84%EA%B8%B0/">&lt;hr /&gt;
 &lt;p&gt;구직 활동을 하던 중 프로그래머스 주관으로 하는 온라인 잡페어의 온라인 코딩테스트 후기를 쓰려고한다. 결과부터 말하자면 코딩테스트의 전체적 난이도는 중 정도 될 것 같다. 생애 처음으로 하는 코딩테스트였던 만큼 준비도 나름 열심히 했지만 잘 풀지 못했다. 시간에 쫓긴다는 압박도 있었고 실력적으로도 부족한 부분도 스스로 많이 느꼈다.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -246,7 +334,7 @@ Framework: Spring Framework
 &amp;lt;/context-param&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;먼저 ContextLoaderListener의 역할에 대해 알아보자. 만약 계층별로 나눈 xml설정 파일이 있다고 하면 web.xml에서 모두 load 되도록 등록할때 사용한다. contextConfigLocation 파라미터를 쓰면 ContextLoader가 load할 수 있는 설정파일을 여러개 쓸 수 있다.&lt;/p&gt;
+&lt;p&gt;먼저 ContextLoaderListener의 역할에 대해 알아보자. DispatcherServlet에 의해 생성된 Beans은 ContextLoaderLisener에 의해 생성된 Bean을 참조할 수 있다. 또 Controller가 공유하는 Bean들(DAO, DataSource, Service)을 포함하는 Spring Container를 생성한다.&lt;/p&gt;
 
 &lt;p&gt;조금 더 깊이 들어가보자. 예를 들어 다음과 같은 설정 코드가 있다.&lt;/p&gt;
 
@@ -275,11 +363,15 @@ Framework: Spring Framework
 &amp;lt;/servlet&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;위의 경우는 DispatcherServlet은 각각 별도의 webapplicationcontext를 사용한다. 따라서 두 context는 독립적이므로 각각의 설정 파일에서 생성한 빈을 공유할 수 없다.&lt;/p&gt;
+&lt;p&gt;위의 경우는 DispatcherServlet은 각각 별도의 &lt;code class=&quot;highlighter-rouge&quot;&gt;WebApplicationContext&lt;/code&gt;를 사용한다. 따라서 두 context는 독립적이므로 각각의 설정 파일에서 생성한 빈을 공유할 수 없다.&lt;/p&gt;
 
-&lt;p&gt;만약 각각 생성한 빈을 공유하고 싶다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;ContextLoaderListener&lt;/code&gt;를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 root context가 되고 DispatcherServlet이 생성한 인스턴스는 root Context를 부모로 하는 자식 context가 된다. 자식 context들은 root context의 설정 빈을 사용할 수 있다.&lt;/p&gt;
+&lt;p&gt;만약 각각 생성한 빈을 공유하고 싶다면 앞서 언급했듯이 &lt;code class=&quot;highlighter-rouge&quot;&gt;ContextLoaderListener&lt;/code&gt;를 사용하여 공통으로 사용할 빈을 설정할 수 있다. web.xml에 들어가있는 코드가 이에 해당하는 코드다. ContextLoaderListener와 DispatcherServlet은 각각 webapplicationcontext를 생성한다. ContextLoaderListener가 생성한 context가 &lt;code class=&quot;highlighter-rouge&quot;&gt;root WebApplicationContext&lt;/code&gt;가 되고 DispatcherServlet이 생성한 인스턴스는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Servlet WebApplicationContext&lt;/code&gt;가 된다. Servlet WebApplicationContext들은 root WebApplicationContext의 설정 빈을 사용할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;따라서 현 프로젝트의 root context는 &lt;code class=&quot;highlighter-rouge&quot;&gt;classpath*:config/spring/context-*.xml&lt;/code&gt; 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet은 &lt;code class=&quot;highlighter-rouge&quot;&gt;/WEB-INF/config/*-servlet.xml&lt;/code&gt; 여기에 해당하는 모든 xml들이 되겠다. rootContext와 자식context들의 차이는 다음 포스트에서 자세히 알아보기로 하자.&lt;/p&gt;
+&lt;p&gt;그림으로 보면 다음과 같다.
+&lt;img src=&quot;/images/20191008-2.png&quot; alt=&quot;_config.yml&quot; /&gt;
+출처:&lt;a href=&quot;https://gmlwjd9405.github.io/&quot;&gt;Heee’s Development Blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;따라서 현 프로젝트의 Servlet WebApplicationContext는 &lt;code class=&quot;highlighter-rouge&quot;&gt;/WEB-INF/config/*-servlet.xml&lt;/code&gt; 여기에 해당하는 모든 xml 파일들이 되고 dispatcherServlet이 만든 Root WebApplicationContext는 &lt;code class=&quot;highlighter-rouge&quot;&gt;classpath*:config/spring/context-*.xml&lt;/code&gt; 여기에 해당하는 모든 xml들이 되겠다. 이들에 관해서는 보다 자세히 다음 포스트에서 설명하도록 하겠다.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;이 포스트에서는 web.xml에 대해서 알아보았다. 생각보다 더 오래걸려서 놀랐지만 끝까지 해보도록 하겠다. 포스팅하고 싶은게 너무 많아서 고민을 많이했는데 프로젝트에 대한 포스팅은 잘한 결정인 것 같다.&lt;/p&gt;
@@ -373,7 +465,33 @@ I will explain more about this later but it is faster and easier to see the chan
         &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘은 재귀함수에 알아보고자 한다. 재귀 함수는 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것을 말한다. 모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 1</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 1" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">&lt;hr /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘은 재귀함수에 알아보고자 한다. 재귀 함수는 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것을 말한다. 모든 재귀 알고리즘은 반복문을 가진 알고리즘(interative version)을 가지고 있다. 이는 수학적으로 증명된 사실인데 궁금하면 찾아보라.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (6)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (6)" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(6)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python6.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;이유덕,이재영,권종표,이재영,박민호,강상희,이재영,김지완,최승혁,이성연,박영서,박민호,전경헌,송정환,김재성,이유덕,전경헌&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;,&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#1. 김씨와 이씨는 각각 몇 명 인가요?
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#names list에서 하나씩 뽑아서 이것의 첫번째 값을 a list에 넣는다.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#count는 list안의 요소의 갯수를 알려준다.
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#2. &quot;이재영&quot;이란 이름이 몇번 반복되나요?
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이재영&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#3. 중복을 제거한 이름을 출력하세요.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#set은 중복을 제거하고 순서가 없다(unordered)
+#교집합, 차집합, 합집합에 유용하게 이용된다.
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#4. 중복을 제거한 이릉믈 오름차순으로 정렬하여 출력하세요.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;출처 : &lt;a href=&quot;http://codingdojang.com/scode/410?orderby=&amp;amp;langby=#answer-filter-area&quot;&gt;코딩도장&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[Jekyll] How to install the best Jekyll theme for your blog - part 1</title><link href="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/" rel="alternate" type="text/html" title="[Jekyll] How to install the best Jekyll theme for your blog - part 1" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5Bjekyll%5Dhow%20to%20choose%20the%20best%20jekyll%20theme%20for%20your%20blog</id><content type="html" xml:base="http://localhost:4000/jekyll-how-to-choose-the-best-jekyll-theme-for-your-blog/">&lt;hr /&gt;
 &lt;p&gt;Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.&lt;/p&gt;
 
 &lt;p&gt;I didn’t learn programming in English. So my terminology might not be perfect or very professional. A bright side is if you aren’t a programmer it might be easier to understand since I don’t throw out professional terms haha.&lt;/p&gt;
@@ -454,33 +572,21 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 
 &lt;p&gt;If you followed till here, well done! You haven’t given up! I didn’t realize when I started this post, it is going to be this long. So I am thinking to separate this post into two or three. Until the next post, it would be good for you to explore Github and study how the system works.&lt;/p&gt;
 
-&lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (6)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (6)" /><published>2019-09-16T00:00:00+09:00</published><updated>2019-09-16T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(6)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(6)/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/images/python6.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Thank you!&lt;/p&gt;</content><author><name></name></author><category term="jekyll [지킬]" /><category term="github [깃허브]" /><summary type="html">Those of you who speak Korean might have realized that I only have been posting about python algorithm quiz. When I started this blog, I wanted my blog to be informative to people who are living outside of my country as well. So from now on, I will try to write some future posts in English.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;이유덕,이재영,권종표,이재영,박민호,강상희,이재영,김지완,최승혁,이성연,박영서,박민호,전경헌,송정환,김재성,이유덕,전경헌&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;,&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#1. 김씨와 이씨는 각각 몇 명 인가요?
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#names list에서 하나씩 뽑아서 이것의 첫번째 값을 a list에 넣는다.
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;김&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이씨 수 : &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#count는 list안의 요소의 갯수를 알려준다.
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#2. &quot;이재영&quot;이란 이름이 몇번 반복되나요?
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이재영&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#3. 중복을 제거한 이름을 출력하세요.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#set은 중복을 제거하고 순서가 없다(unordered)
-#교집합, 차집합, 합집합에 유용하게 이용된다.
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#4. 중복을 제거한 이릉믈 오름차순으로 정렬하여 출력하세요.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique_N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;출처 : &lt;a href=&quot;http://codingdojang.com/scode/410?orderby=&amp;amp;langby=#answer-filter-area&quot;&gt;코딩도장&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">문제</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (4)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (4)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(4)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/">&lt;p&gt;오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 index와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (4)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (4)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(4)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(4)/">&lt;p&gt;오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.&lt;/p&gt;
 
 &lt;p&gt;아무튼… 오늘 풀 문제는 이진 탐색에 관한 문제이다.&lt;/p&gt;
 
@@ -528,60 +634,4 @@ Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; and create 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt;부터 시작해서 이진탐색을 하게 된다면 오히려 선형 탐색보다 수행 시간이 더 걸릴 수 있다.&lt;br /&gt;
 아직 실무에서 직접 경험해보지는 않았지만 이런 점들을 고려하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;를 만들 때 되도록이면 정렬이 될 수 있게 신경을 써주면 되지 않을까라는 생각을 해본다.&lt;/p&gt;
 
-&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (5)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (5)" /><published>2019-09-05T00:00:00+09:00</published><updated>2019-09-05T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(5)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(5)/">&lt;p&gt;이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 &lt;code class=&quot;highlighter-rouge&quot;&gt;index&lt;/code&gt;와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.&lt;/p&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/images/python5.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ar2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">이거는 그냥 심심해서 풀어본 문제이다. 문제는 긴데 답은 짧다. 진짜 별거 아닌데 자그마한 실수를 보지 못해 생각보다 오래걸렸다. 이런 문제를 오래 보다보면 자꾸만 index와 이에 해당하는 값이 자꾸 머릿속에서 엉켜서 헷갈릴 때가 있다. 그런 때 실제 수를 대입하면서 하면 조금은 편하더라…라는 깨달음? 아닌 깨달음을 얻었다. 코딩에 바로 들어가기 전에 미리미리 머리속에서 정리를 하는 연습이 필요한 것 같다.</summary></entry><entry><title type="html">[파이썬] 문제 풀이 (3)</title><link href="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/" rel="alternate" type="text/html" title="[파이썬] 문제 풀이 (3)" /><published>2019-09-03T00:00:00+09:00</published><updated>2019-09-03T00:00:00+09:00</updated><id>http://localhost:4000/%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC%5D%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4(3)</id><content type="html" xml:base="http://localhost:4000/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4(3)/">&lt;p&gt;서론
-오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다.
-매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다.&lt;/p&gt;
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/images/python3.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;제가 생각해낸 답은 아주 간단합니다. 조건을 잘 읽어보시면 되는데 문제 풀이에 초점을 맞춘다면 가장 중요한 조건은 completion의 길이는 participant의 길이보다 1 작다는 것입니다.&lt;br /&gt;
-풀이를 보시면 먼저 participant와 completion을 sort를 합니다. 그 다음 completion의 list의 크기 만큼 반복문을 돌려서 participant와 completion의 값을 비교합니다.&lt;br /&gt;
-반복문 중간에 값이 다르다면 그 값을 바로 return하고, 반복문이 끝까지 돌 때까지(completion의 길이 만큼) 다른 값이 없다면 participant list 안 마지막 순서에 있는 사람이 완주하지 못했다는 것을 자연스럽게 유추할 수 있습니다.&lt;br /&gt;
-따라서 반복문을 빠져나와 participant의 가장 마지막 값 participant[i+1]을 return 하면 됩니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;하지만&quot;&gt;하지만&lt;/h3&gt;
-&lt;p&gt;여기서 제가 미처 생각하지 못한 것이 있습니다. 바로 &lt;strong&gt;코드의 효율성&lt;/strong&gt;입니다.&lt;br /&gt;
-위에 올린 풀이대로 하면 답은 구할 수 있지만 list가 커지면 list의 모든 원소들을 다 하나하나 뒤져야 하므로 코드의 효율성이 떨어질 수 있습니다. &lt;br /&gt;
-따라서 제가 찾은 답은……&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;collections&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;collections모듈의 Counter를 이용해 중복을 허용하는 dictionary 객체를 만든 뒤 차집합을 한 다음 이를 list의 형태로 변환한 뒤 0번째 index를 꺼내오면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;hash의 종류 중 하나인 dictionary 자료형은 큰 데이터를 가지고 즉시 저장하거나 찾고자 하는 위치를 바로 바로 참조할 수 있으므로 더욱 빠른 속도로 처리할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;최근 시간복잡도나 코드의 효율성에 영향을 끼치는 자료구조에 대해서 따로 인강도 들으면서 공부를 하는 중인데 기회가 되면 배운 것을 정리할 겸 해서 자료구조에 대해서 포스팅을 할 계획입니다.&lt;/p&gt;
-
-&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">서론 오늘부터 적어도 하루에 하나씩 알고리즘 문제를 풀고 블로그에 올리려고 합니다. 매일 차근차근 적어도 한 문제씩 블로그에 포스팅하면서 제대로 정리가 안되있던 개념들을 다시 한번 바로잡는 기회를 갖고자 합니다. 문제</summary></entry></feed>
+&lt;p&gt;출처: &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;프로그래머스&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="python [파이썬]" /><category term="algorithm [알고리즘]" /><summary type="html">오늘부터 말투를 바꾸기로 결정했다. 일단 ~입니다 말투를 쓰니 블로그 글쓰기가 어렵다. 개발하려고 만든 블로그에 글쓰기 수정만 너무 오래하고 있는 나를 발견하고 결국 글쓰기 방식을 바꾸기로 마음먹었다. 글 잘쓰는 사람이 부러워지는 순간이다. 또 학원에 같이 다니는 친구가 말하기를 내 말투가 좀 오그라든다고한다.</summary></entry></feed>
