@@ -1,6 +1,6 @@
 ---
 title: "2019-10-11-[토이프로젝트]LOL Duo - part 2"
-subtitle: "기본 구조 및 web.xml 설정 파헤치기"
+subtitle: "기본 구조 및 web.xml 설정 파헤치기(Dispatcher-Servlet, Context Hierarchy)"
 categories: [Spring Framework]
 tags:
   - Spring Framework [스프링]
@@ -95,5 +95,5 @@ RootContext의 경우 web application의 실제 비즈니스 혹은 목적을 �
 따라서 context component scan을 통한 controller, service, repository의 bean 등록 설정을 할 때 주의를 기울여야 한다. 물론 다 한번에 스캔해버려도 상관은 없지만 불필요한 bean 등록이 발생하게 되어 낭비가 발생한다. 따라서 bean 등록 시 include 와 exclude를 적절히 사용하여 불필요한 중복 bean 등록을 피하는 것이 좋다.
 
 ***
-최대한 정리를 해보려고 썼지만 글이 영 엉성한 느낌이다. 앞으로 계속해서 수정해나가야 할 것 같다. 다음 포스트가 언제가 될지는 모르겠지만 아직 설정단계가 끝나지 않았다. 스프링은 설정이 반이라더니 그 말이 맞다. 혹시 틀리거나 부족한 부분은 댓글로 남겨주시면 바로바로 수정해나가려고 노력하겠다. 
+최대한 정리를 해보려고 썼지만 글이 영 엉성한 느낌이다. 앞으로 계속해서 수정해나가야 할 것 같다. 다음 포스트가 언제가 될지는 모르겠지만 아직 설정단계가 끝나지 않았다. 스프링은 설정이 반이라더니 그 말이 맞다. 혹시 틀리거나 부족한 부분은 댓글로 남겨주시면 바로바로 수정해나가려고 노력하겠다.
 참고: [흔한개발자](https://addio3305.tistory.com/), [Spring by Pivotal](https://nice2049.tistory.com/entry/spring-rootContext-%EA%B7%B8%EB%A6%AC%EA%B3%A0-servletContext-%EB%8C%80%ED%95%B4%EC%84%9C)
