@@ -1,9 +1,9 @@
 ---
-title: "2019-09-23-[토이프로젝트]LOL Duo - part 1"
+title: "[토이프로젝트]LOL Duo - part 1"
 subtitle: "기본 구조 및 web.xml 설정 파헤치기(Encoding, Dispatcher-Servlet)"
 categories: [Spring Framework]
 tags:
-  - Spring Framework [스프링]
+  - spring framework [스프링]
 published: true
 ---
 
