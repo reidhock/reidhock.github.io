@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>[오라클] 날짜 관련 함수 정리 – Lee + Developer – blog by WoongHee Lee</title>
+  <title>[이것저것] 국비지원교육 그 후... – Lee + Developer – blog by WoongHee Lee</title>
 
       <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -11,14 +11,14 @@
     <meta name="keywords" content="programming, blog, java, python, jekyll, oracle, 자바, 파이썬, 지킬, 프로그래밍, 개발자, 블로그">
 
     
-    <meta name="description" content="sysdate, months_between, add_months, next_day, last_day" />
-    <meta property="og:description" content="sysdate, months_between, add_months, next_day, last_day" />
+    <meta name="description" content="국비교육 이야기, 취업, 취업 후기..." />
+    <meta property="og:description" content="국비교육 이야기, 취업, 취업 후기..." />
     
     <meta name="author" content="Lee + Developer" />
 
     
-    <meta property="og:title" content="[오라클] 날짜 관련 함수 정리" />
-    <meta property="twitter:title" content="[오라클] 날짜 관련 함수 정리" />
+    <meta property="og:title" content="[이것저것] 국비지원교육 그 후..." />
+    <meta property="twitter:title" content="[이것저것] 국비지원교육 그 후..." />
     
 
   <!-- Async font loading -->
@@ -84,24 +84,24 @@
 
     <div id="main" role="main" class="container">
       <article class="post">
-  <h1>[오라클] 날짜 관련 함수 정리</h1>
-  <h2>sysdate, months_between, add_months, next_day, last_day</h2>
+  <h1>[이것저것] 국비지원교육 그 후...</h1>
+  <h2>국비교육 이야기, 취업, 취업 후기...</h2>
   <div clsss="meta">
     <span class="date">
-      2019-10-31
+      2019-12-26
     </span>
 
     <ul class="tag">
       
       <li>
-        <a href="http://localhost:4000/tags#oracle [오라클]">
-          oracle [오라클]
+        <a href="http://localhost:4000/tags#random [이것저것]">
+          random [이것저것]
         </a>
       </li>
       
       <li>
-        <a href="http://localhost:4000/tags#sql [쿼리]">
-          sql [쿼리]
+        <a href="http://localhost:4000/tags#algorithm [알고리즘]">
+          algorithm [알고리즘]
         </a>
       </li>
       
@@ -109,61 +109,35 @@
   </div>
 
   <div class="entry">
-    <p>오늘은 날짜 관련 함수에 대해서 포스팅 해보려고 한다. 처음 쿼리문에 대해서 배울때는 날짜 함수 공부에 대해서 소홀히 했는데 여러 프로젝트를 진행해보니 날짜 관련 함수의 중요성을 깨달았다.</p>
+    <hr />
+<p>그동안 취업한다고 바빠서 포스팅을 하지 못했다. 얼마나 자주, 얼마나 더 포스팅을 할지는 모르겠지만 글쓰기가 생각보다 재미있어서 계속해보고 싶다는 생각은 가지고 있다. 이번 포스팅에서는 국비지원 IT교육 후기 및 취업 관련해서 이야기해보고자 한다.
+***</p>
 
-<p><code class="highlighter-rouge">SYSDATE</code>: 시스템에 저장된 현재 날짜를 반환한다.</p>
+<h2 id="비전공생으로-국비지원-it교육-후기">비전공생으로 국비지원 IT교육 후기</h2>
+<p>2019년 4월에 남들보다는 뒤늦게 국비지원교육을 통해서 6개월 간 프로그래밍을 배웠다. 사회생활을 한 경험도 없고 전공자도 아니고 새로운 분야를 처음부터 시작하기에는 늦은 감이 있어서 걱정도 많았지만 어렸을 때부터 컴퓨터쪽 일을 늘 하고 싶었던 터라 용기내서 시작했다. 정말 큰 용기내서 시작했다. 왜냐하면 한국에서는 예외도 있겠지만 나이가 많을수록 취업의 문이 좁아지기 시작하기 때문이다. 따라서 이 후기는 남들에게 “해라,말아라” 기보다는 솔직하게 이야기하는 것에 집중을 하고 싶다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select sysdate from dual;
+<h3 id="수업-자체는-크게-어렵지-않다">수업 자체는 크게 어렵지 않다.</h3>
+<p>비전공이라서 쫄을 것도 전혀없었다. 왜냐하면 처음부터 차근차근 알려주고 강사들도 어느정도 매뉴얼이 있기 때문에 매 수업 때마다 자기가 하던 레파토리를 쓰기에 나름 체계적으로 배울 수 있는 구조로 되어있다. 하지만 자기가 비전공인데도 잘따라가네? 하면 안된다. 체계적이지만 6개월의 과정은 터무니 없이 짧고 공부해야 할 것은 수업외적으로도 너무나 많다. 그렇다고 수업끝나고 매일 새벽 1시까지 공부한 것은 아니지만 적어도 배운 것은 복습하고 혼자서 공부해야할 부분은 했었다. 국비지원교육은 요점정리교육이고 그 밖의 심화과정은 스스로 해야한다는 마음가짐을 가지면 좋을 것같다.</p>
 
-#날짜형 데이터는 더하기나 빼기와 같은 연산도 가능하다
+<h3 id="강사의-질">강사의 질?</h3>
+<p>이건 내가 왈가왈부할 일은 아닌 게 강사분들도 나름 경력이 있으시고 또 학원방침과 정부방침이 있기 때문에 판단하기가 힘들다. 개인적으로는 만족한다. 많은 사람들이 차라리 돈내고 6개월배워라라고 하는데 이건 자신의 경제적인 부분을 고려해야할 것 같다. 개인적으로는 수업의 질은 막바지로 갈수록 점차 떨어졌지만(이건 어느 국비지원교육이나 다 그럴것 같다) 기초를 쌓기에는 충분했다고 생각한다.</p>
 
-select sysdate-1 어제, sysdate 오늘, sysdate+1 내일
-from dual
-</code></pre></div></div>
+<h3 id="만족도는-5점-만점에-35점">만족도는 5점 만점에 3.5점</h3>
+<p>공짜로 들으면서 프로그래밍 세계에 입문할 수 있기 때문에 필자는 매우 감사하게 생각한다. 돈이 많았으면 좋은 학원을 갔겠지만 세상사람 모두가 돈이 많을 수는 없다. 어딜가나 자기 나름이라고 생각한다. 만약 자기가 재벌이 아니고 프로그래밍에 진지하게 입문하고 싶다면 추천한다. 다만 수업이 뒤로 갈수록 루즈해지고 배웠던 것을 또 배우는 느낌이 없지않아 있다. 따라서 막바지 부분에는 스스로 공부하는 능력을 키워놔야된다. 공짜고 다 좋았지만 마지막 2개월이 약했다는 점에서 5점 만점에 3.5점을 주겠다.</p>
 
-<p><code class="highlighter-rouge">MONTHS_BETWEEN</code>: 두 날짜 사이가 몇 개월인지를 반환한다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select 컬럼명, sysdate, months_between(sysdate, 컬럼명)
-from 테이블명
-where 조건절
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">ADD_MONTHS</code>: 특정 날짜에 개월 수를 더한다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select ADD_MONTHS(컬럼명, 더하고 싶은 개월 숫자)
-from 테이블명
-where 조건절
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">NEXT_DAY</code>: 특정 날짜에서 최초로 도래하는 인자로 받은 요일의 날짜를 반환한다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#오늘을 기준으로 최초로 다가오는 수요일이 언제인지 알아본다.
-select next_day(sysdate,'수요일') #수요일은 '수' 또는 4로 대체해서 입력할 수 있다.
-from dual
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">LATS_DAY</code>: 해당 달의 마지막 날짜를 반환한다.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select sysdate, last_day(sysdate)
-from dual;
-</code></pre></div></div>
+<h2 id="취업-준비-과정-및-후기">취업 준비 과정 및 후기</h2>
+<p>현재 모병원에서 개발 업무를 맡고 있다. 남들이 부러워하는 엄청난 직장은 아니지만 나름 만족하고 열심히 배우면서 다니고 있다. 취업전선에 뛰어들면 객관적으로 자신의 실력을 돌아볼 수 있는 계기를 가지고 싶지 않아도 가지게 된다. 사회에는 너무나 많은 전공자들이 취업을 위해 노력하고 있고 또 다른 국비지원 학생들도 널렸다.</p>
 
   </div>
 
   <div class="pagination">
     
       <span class="prev" >
-          <a href="http://localhost:4000/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D(Stack)/">
-            &#xE000; [자료구조,파이썬] 스택 (Stack)
+          <a href="http://localhost:4000/%EC%98%A4%EB%9D%BC%ED%81%B4-%ED%8A%B9%EC%A0%95-%EB%82%A0%EC%A7%9C-%EC%82%AC%EC%9D%B4%EC%97%90-%EC%9E%88%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%ED%95%98%EA%B8%B0/">
+            &#xE000; [오라클] 날짜 관련 함수 정리
           </a>
       </span>
     
-    
-      <span class="next" >
-          <a href="http://localhost:4000/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90-%EA%B5%90%EC%9C%A1-%EA%B7%B8-%ED%9B%84/">
-            [이것저것] 국비지원교육 그 후... &#xE001;
-          </a>
-      </span>
     
   </div>
 
@@ -248,8 +222,8 @@ from dual;
 
 		ga('create', 'UA-106768275-3', 'auto');
 		ga('send', 'pageview', {
-		  'page': '/%EC%98%A4%EB%9D%BC%ED%81%B4-%ED%8A%B9%EC%A0%95-%EB%82%A0%EC%A7%9C-%EC%82%AC%EC%9D%B4%EC%97%90-%EC%9E%88%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%ED%95%98%EA%B8%B0/',
-		  'title': '[오라클] 날짜 관련 함수 정리'
+		  'page': '/%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90-%EA%B5%90%EC%9C%A1-%EA%B7%B8-%ED%9B%84/',
+		  'title': '[이것저것] 국비지원교육 그 후...'
 		});
 	</script>
 	<!-- End Google Analytics -->
