@@ -5,7 +5,7 @@ categories: [jekyll]
 tags:
   - jekyll [지킬]
   - github [깃허브]
-published: true
+published: false
 ---
 
 ***

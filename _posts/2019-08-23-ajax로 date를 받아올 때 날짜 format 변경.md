@@ -5,7 +5,7 @@ categories: [ajax, oracle]
 tags:
   - ajax
   - oracle [오라클]
-published: true
+published: false
 ---
 제가 프로젝트를 진행하면서 부딫힌 문제에 대해서 나누고 싶습니다.
 
