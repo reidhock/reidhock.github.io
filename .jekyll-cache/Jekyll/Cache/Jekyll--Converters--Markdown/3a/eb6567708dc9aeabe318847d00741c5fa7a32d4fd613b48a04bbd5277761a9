@@ -1,0 +1,20 @@
+I"{<hr />
+<p>다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 써놓자</p>
+
+<hr />
+
+<h2 id="먼저-맥-기본-세팅부터">먼저 맥 기본 세팅부터</h2>
+<p>다른거 없다 이 <a href="https://subicura.com/2017/11/22/mac-os-development-environment-setup.html">링크</a>가서 첨부터 하나씩 다 따라하면 된다. 깔끔하게 필요한 정보를 정리해주신 너무나 감사한 분임에 틀림없다.</p>
+
+<h2 id="이제-go를-다운-받자">이제 Go를 다운 받자</h2>
+<p>인터넷에서 <a href="https://golang.org/dl/">고랭 공식 웹사이트</a>을 다운받아도 되고 <code class="language-plaintext highlighter-rouge">homebrew</code>를 이용해서 다운받아도 된다. homebrew로 다운받는게 개발자로서 더 멋있음으로 터미널을 열어서 다운받자. (homebrew로 하는게 관리하기도 쉽다.)</p>
+
+<p><strong>터미널을 열고 그대로 복붙해라!</strong></p>
+<ol>
+  <li>homebrew가 없을 때 homebrew부터 다운 받자
+```</li>
+</ol>
+
+<p>ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
+```</p>
+:ET

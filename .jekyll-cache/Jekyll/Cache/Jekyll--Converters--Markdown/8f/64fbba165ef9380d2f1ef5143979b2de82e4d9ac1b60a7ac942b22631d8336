@@ -1,0 +1,47 @@
+I"�<hr />
+<p>다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 써놓자</p>
+
+<hr />
+
+<h2 id="먼저-맥-기본-세팅부터">먼저 맥 기본 세팅부터</h2>
+<p>다른거 없다 이 <a href="https://subicura.com/2017/11/22/mac-os-development-environment-setup.html">링크</a>가서 첨부터 하나씩 다 따라하면 된다. 깔끔하게 필요한 정보를 정리해주신 너무나 감사한 분임에 틀림없다.</p>
+
+<h2 id="이제-고랭을-위한-세팅을-해보자">이제 고랭을 위한 세팅을 해보자</h2>
+<p>인터넷에서 <a href="https://golang.org/dl/">고랭 공식 웹사이트</a>을 다운받아도 되고 <code class="language-plaintext highlighter-rouge">homebrew</code>를 이용해서 다운받아도 된다. homebrew로 다운받는게 개발자로서 더 멋있음으로 터미널을 열어서 다운받자. (homebrew로 하는게 관리하기도 쉽다.)</p>
+
+<p><strong>터미널을 열고 그대로 복붙해라!</strong></p>
+
+<p>step 1. homebrew가 없을 때 homebrew부터 다운 받자</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby <span class="nt">-e</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>step 2. 고랭 다운받기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update&amp;&amp; brew <span class="nb">install </span>golang
+</code></pre></div></div>
+<p><br /></p>
+
+<p>step 3. 고랭 사용 준비하기</p>
+
+<p>고랭을 사용하기 위해서는 기본적인 폴더들(go,bin, src)을 만들어줘야한다. 폴더들을 어디에다가 만들지는 사용자에 따라 취향을 타는 것 같다. 아래의 내용을 터미널에 입력하면 /users/mycomputer에 생성이 된다. 
+가장 기본적인 디렉토리니까 이런거 세팅 처음하고 잘 못하면 아래대로 하고 난 고수다하면 자기가 원하는 디렉토리를 만들어줘라.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$HOME</span>/go/<span class="o">{</span>bin,src<span class="o">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>step 4. 고랭 환경설정하기</p>
+
+<p>위의 맥 기본 세팅을 따라왔다면 현재 zsh를 쓰고 있는 상태일 것이다. 그렇다면, .zshrc 파일을 수정해줘야한다. 이 파일은 /users/mycomputer 이 경로에 숨어있는 파일로 <code class="language-plaintext highlighter-rouge">command</code> + <code class="language-plaintext highlighter-rouge">shift</code> + <code class="language-plaintext highlighter-rouge">.</code> 키를 입력하면 볼 수 있다. 또는, vim을 이용해서 수정할 수 있는데 이는 어려우니까 알면하고 모르면 가장 원초적인 방법으로 해자. 위의 단축키를 누르면 폴더들이 옅은 회색으로 보이는데 그 중 .zshrc 파일이 있다. 
+파일 맨 마지막 줄에 다음을 삽입해준다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export GOPATH=$HOME/go
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>그럼 끝! 고 사용 준비 완료!</strong></p>
+:ET
