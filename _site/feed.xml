@@ -1,7 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-07-25T18:30:06+09:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[GO] Go Lang?</title><link href="http://0.0.0.0:4000/Go-Lang/" rel="alternate" type="text/html" title="[GO] Go Lang?" /><published>2020-07-24T00:00:00+09:00</published><updated>2020-07-24T00:00:00+09:00</updated><id>http://0.0.0.0:4000/Go%20%20Lang</id><content type="html" xml:base="http://0.0.0.0:4000/Go-Lang/">&lt;hr /&gt;
-&lt;p&gt;다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 준비하는 느낌으로 블로깅 시작!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-07-26T10:07:54+09:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Lee + Developer</title><subtitle>blog by WoongHee Lee</subtitle><entry><title type="html">[GO] Go Lang?</title><link href="http://0.0.0.0:4000/Go-Lang/" rel="alternate" type="text/html" title="[GO] Go Lang?" /><published>2020-07-24T00:00:00+09:00</published><updated>2020-07-24T00:00:00+09:00</updated><id>http://0.0.0.0:4000/Go%20%20Lang</id><content type="html" xml:base="http://0.0.0.0:4000/Go-Lang/">&lt;hr /&gt;
+&lt;p&gt;다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 써놓자&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;먼저-맥-기본-세팅부터&quot;&gt;먼저 맥 기본 세팅부터&lt;/h2&gt;
-&lt;p&gt;다른거 없다 이 &lt;a href=&quot;https://programmers.co.kr/learn/courses/57/lessons/13775&quot;&gt;링크&lt;/a&gt;가서 첨부터 하나씩 다 따라하면 된다. 깔끔하게 필요한 정보를 정리해주신 너무나 감사한 분임에 틀림없다.&lt;/p&gt;</content><author><name></name></author><category term="고랭 [Go]" /><summary type="html">다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 준비하는 느낌으로 블로깅 시작!</summary></entry></feed>
+&lt;p&gt;다른거 없다 이 &lt;a href=&quot;https://subicura.com/2017/11/22/mac-os-development-environment-setup.html&quot;&gt;링크&lt;/a&gt;가서 첨부터 하나씩 다 따라하면 된다. 깔끔하게 필요한 정보를 정리해주신 너무나 감사한 분임에 틀림없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이제-고랭을-위한-세팅을-해보자&quot;&gt;이제 고랭을 위한 세팅을 해보자&lt;/h2&gt;
+&lt;p&gt;인터넷에서 &lt;a href=&quot;https://golang.org/dl/&quot;&gt;고랭 공식 웹사이트&lt;/a&gt;을 다운받아도 되고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;homebrew&lt;/code&gt;를 이용해서 다운받아도 된다. homebrew로 다운받는게 개발자로서 더 멋있음으로 터미널을 열어서 다운받자. (homebrew로 하는게 관리하기도 쉽다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;터미널을 열고 그대로 복붙해라!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;step 1. homebrew가 없을 때 homebrew부터 다운 받자&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;step 2. 고랭 다운받기&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew update&amp;amp;&amp;amp; brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;golang
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;step 3. 고랭 사용 준비하기&lt;/p&gt;
+
+&lt;p&gt;고랭을 사용하기 위해서는 기본적인 폴더들(go,bin, src)을 만들어줘야한다. 폴더들을 어디에다가 만들지는 사용자에 따라 취향을 타는 것 같다. 아래의 내용을 터미널에 입력하면 /users/mycomputer에 생성이 된다. 
+가장 기본적인 디렉토리니까 이런거 세팅 처음하고 잘 못하면 아래대로 하고 난 고수다하면 자기가 원하는 디렉토리를 만들어줘라.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/go/&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;bin,src&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;step 4. 고랭 환경설정하기&lt;/p&gt;
+
+&lt;p&gt;위의 맥 기본 세팅을 따라왔다면 현재 zsh를 쓰고 있는 상태일 것이다. 그렇다면, .zshrc 파일을 수정해줘야한다. 이 파일은 /users/mycomputer 이 경로에 숨어있는 파일로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;command&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shift&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.&lt;/code&gt; 키를 입력하면 볼 수 있다. 또는, vim을 이용해서 수정할 수 있는데 이는 어려우니까 알면하고 모르면 가장 원초적인 방법으로 해자. 위의 단축키를 누르면 폴더들이 옅은 회색으로 보이는데 그 중 .zshrc 파일이 있다. 
+파일 맨 마지막 줄에 다음을 삽입해준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export GOPATH=$HOME/go
+export PATH=&quot;$PATH:${GOPATH}/bin:${GOROOT}/bin&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;그럼 끝! 고 사용 준비 완료!&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="고랭 [Go]" /><summary type="html">다음에 또 처음부터 세팅해야 될지도 모르니까 미래를 위해 써놓자</summary></entry></feed>
